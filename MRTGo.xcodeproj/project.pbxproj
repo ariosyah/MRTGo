@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0594630F2A664B78009CB0FE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0594630E2A664B78009CB0FE /* HomeView.swift */; };
 		05FBAA9D2A66382B009DD600 /* MRTGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBAA9C2A66382B009DD600 /* MRTGoApp.swift */; };
 		05FBAA9F2A66382B009DD600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBAA9E2A66382B009DD600 /* ContentView.swift */; };
 		05FBAAA12A66382C009DD600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05FBAAA02A66382C009DD600 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0594630E2A664B78009CB0FE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		05FBAA992A66382B009DD600 /* MRTGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MRTGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05FBAA9C2A66382B009DD600 /* MRTGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTGoApp.swift; sourceTree = "<group>"; };
 		05FBAA9E2A66382B009DD600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				0594630B2A6648BE009CB0FE /* Component */,
 				05FBAA9E2A66382B009DD600 /* ContentView.swift */,
+				0594630E2A664B78009CB0FE /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0594630F2A664B78009CB0FE /* HomeView.swift in Sources */,
 				05FBAA9F2A66382B009DD600 /* ContentView.swift in Sources */,
 				05FBAA9D2A66382B009DD600 /* MRTGoApp.swift in Sources */,
 			);
