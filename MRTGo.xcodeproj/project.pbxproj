@@ -32,6 +32,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0594630B2A6648BE009CB0FE /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		05FBAA902A66382B009DD600 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +78,7 @@
 		05FBAAAA2A663837009DD600 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0594630B2A6648BE009CB0FE /* Component */,
 				05FBAA9E2A66382B009DD600 /* ContentView.swift */,
 			);
 			path = View;
