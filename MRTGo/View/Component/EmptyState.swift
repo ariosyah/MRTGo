@@ -19,6 +19,7 @@ struct EmptyState: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: 227, height: 271)
+                .padding(.vertical, 5)
             
             if isDepartureChosen{
                 Text("Anda belum memilih destinasi")
@@ -41,7 +42,7 @@ struct EmptyState: View {
                         .background(Color("Primary"))
                         .cornerRadius(200)
                 }
-                .padding(.vertical, 30)
+                .padding(.top, 30)
                 
                 
             }else{
