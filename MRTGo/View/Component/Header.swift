@@ -100,11 +100,13 @@ struct Header: View {
                         .padding(.leading, 40)
                         .font(.system(size: 16, weight: .medium))
                         .foregroundColor(Color("Primary"))
+                        .disabled(!isDepartureChosen)
+
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color.white)
+                .background(!isDepartureChosen ? Color("Gray-300") : .white)
                 .cornerRadius(200)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 5)
