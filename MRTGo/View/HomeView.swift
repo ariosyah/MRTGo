@@ -33,7 +33,8 @@ struct HomeView: View {
                                 }
                     
                             } else {
-                                EmptyState(isDepartureChosen: $isDepartureChosen).opacity(1)
+                                EmptyState(departure: $departure, destination: $destination, isDepartureChosen: $isDepartureChosen, isDestinationChosen: $isDestinationChosen)
+                                    .opacity(1)
                             }
 
 
