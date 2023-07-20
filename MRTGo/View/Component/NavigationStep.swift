@@ -14,7 +14,7 @@ struct NavigationStep: View {
     var body: some View {
         VStack(spacing: 12) {
             HStack(spacing: 12) {
-                Image("marker-pin-departure")
+                instruction.dataImage
                     .resizable()
                     .frame(width: 36, height: 36)
                 VStack(alignment: .leading) {
