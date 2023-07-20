@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProgressItem: View {
     var a = 1
+    @Binding var destination : String
     @State private var revealDetails = false
     var body: some View {
         VStack(alignment:.leading,spacing: 0){
@@ -102,7 +103,7 @@ struct ProgressItem: View {
                 VStack(alignment:.leading,spacing: 0){
                     HStack{
                         //Define location name
-                        Text("Hotel Pullman Jakarta")
+                        Text("\(destination)")
                             .font(Font.custom("HelveticaNeue", size: 16))
                             .foregroundColor(a == 1 ? .black : .blue)
                             .bold()
@@ -136,6 +137,6 @@ struct StripLine: View {
 
 struct ProgressItem_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressItem()
+        ProgressItem(destination: .constant("Hotel Pullman Jakarta"))
     }
 }

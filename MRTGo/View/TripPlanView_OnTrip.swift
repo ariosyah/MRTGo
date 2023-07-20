@@ -34,7 +34,7 @@ struct TripPlanView_OnTrip: View {
                     .padding(24)
                     
                     //Progress Item
-                    ProgressItem()
+                    ProgressItem(destination: $destination)
                         .padding(.horizontal,24)
                         .frame(height: .infinity)
                     Spacer()
@@ -63,7 +63,7 @@ struct TripPlanView_OnTrip: View {
                                 .font(Font.custom("HelveticaNeue",size:18))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color("Primary"))
-
+                            
                             Text("Stasiun Bundaran HI")
                                 .font(Font.custom("HelveticaNeue",size:16))
                                 .foregroundColor(Color("Gray-500"))
@@ -73,11 +73,9 @@ struct TripPlanView_OnTrip: View {
                     .padding(.top,16)
                     ScrollView{
                         VStack(alignment: .leading,spacing:12){
-                            NavigationStep()
-                            NavigationStep()
-                            NavigationStep()
-                            NavigationStep()
-                            NavigationStep()
+                            ForEach(((Constants.attractions.first(where: {$0.nearbyAttractions.contains(where: {$0.lowercased() == destination.lowercased()})})?.instructions)!)) { instruction in
+                                NavigationStep(instruction: instruction)
+                            }
                         }
                         Spacer()
                     }
@@ -86,7 +84,7 @@ struct TripPlanView_OnTrip: View {
                 .padding(.horizontal,24)
                 .presentationDetents([.height(433)])
                 .presentationDragIndicator(.visible)
-
+                
             }
         }
     }
@@ -94,6 +92,6 @@ struct TripPlanView_OnTrip: View {
 
 struct TripPlanView_OnTrip_Previews: PreviewProvider {
     static var previews: some View {
-        TripPlanView_OnTrip(isKeyboardActive: .constant(true), departure: .constant(""), destination: .constant(""), isDepartureChosen: .constant(false), isDestinationChosen: .constant(false))
+        TripPlanView_OnTrip(isKeyboardActive: .constant(true), departure: .constant(""), destination: .constant("Hotel Pullman Jakarta"), isDepartureChosen: .constant(false), isDestinationChosen: .constant(false))
     }
 }
