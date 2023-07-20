@@ -34,7 +34,7 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
         
         let center = CLLocationCoordinate2D(latitude: -6.301912729640826, longitude: 106.65260511112984)
         
-        let region = CLCircularRegion(center: center, radius: 500.0, identifier: "")
+        let region = CLCircularRegion(center: center, radius: 500.0, identifier: UUID().uuidString)
         region.notifyOnEntry = true
         region.notifyOnExit = false
         
