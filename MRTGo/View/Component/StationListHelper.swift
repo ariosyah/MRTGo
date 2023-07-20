@@ -16,6 +16,16 @@ func matchedStations(stations: [Station], departure: String) -> [Station] {
 }
 
 let stations = [
-    Station(name: "Stasiun Lebak Bulus", exitCount: 3),
-    Station(name: "Stasiun Bundaran Hi", exitCount: 4),
+    Station(name: "Stasiun Lebak Bulus Grab", exitCount: 6),
+    Station(name: "Stasiun Fatmawati Indomaret", exitCount: 4),
+    Station(name: "Stasiun Cipete Raya", exitCount: 6),
+    Station(name: "Stasiun Haji Nawi", exitCount: 5),
+    Station(name: "Stasiun Blok A", exitCount: 4),
+    Station(name: "Stasiun ASEAN", exitCount: 3),
+    Station(name: "Stasiun Senayan", exitCount: 4),
+    Station(name: "Stasiun Istora Mandiri", exitCount: 4),
+    Station(name: "Stasiun Bendungan Hilir", exitCount: 3),
+    Station(name: "Stasiun Setiabudi Astra", exitCount: 4),
+    Station(name: "Stasiun Dukuh Atas BNI", exitCount: 5),
+    Station(name: "Stasiun Bundaran Hi", exitCount: 6),
 ]
