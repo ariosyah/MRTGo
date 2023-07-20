@@ -13,6 +13,8 @@ struct HomeView: View {
     @State private var destination = ""
     @State private var isDepartureChosen = false
     @State private var isDestinationChosen = false
+    
+    @StateObject var notificationManager = NotificationManager()
 
 
     var body: some View {
@@ -41,7 +43,10 @@ struct HomeView: View {
 
                 Spacer()
             }
+            
         }
+        
+     
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
             withAnimation {
                 isKeyboardActive = true
@@ -53,6 +58,7 @@ struct HomeView: View {
             }
         }
     }
+    
 }
 
 

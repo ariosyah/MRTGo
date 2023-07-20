@@ -18,6 +18,7 @@
 		05FBAA9F2A66382B009DD600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBAA9E2A66382B009DD600 /* ContentView.swift */; };
 		05FBAAA12A66382C009DD600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05FBAAA02A66382C009DD600 /* Assets.xcassets */; };
 		05FBAAA42A66382C009DD600 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05FBAAA32A66382C009DD600 /* Preview Assets.xcassets */; };
+		462C64282A68DAC800905B42 /* NotificationSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C64272A68DAC800905B42 /* NotificationSetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		05FBAA9E2A66382B009DD600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		05FBAAA02A66382C009DD600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05FBAAA32A66382C009DD600 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		462C64272A68DAC800905B42 /* NotificationSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSetup.swift; sourceTree = "<group>"; };
+		46C6C5422A68FD4700C592AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 		05FBAA9B2A66382B009DD600 /* MRTGo */ = {
 			isa = PBXGroup;
 			children = (
+				46C6C5422A68FD4700C592AB /* Info.plist */,
+				462C64262A68D81400905B42 /* NotificationManager */,
 				05FBAA9C2A66382B009DD600 /* MRTGoApp.swift */,
 				05FBAAAB2A663848009DD600 /* Model */,
 				05FBAAAA2A663837009DD600 /* View */,
@@ -111,6 +116,14 @@
 			);
 			name = Model;
 			path = View;
+			sourceTree = "<group>";
+		};
+		462C64262A68D81400905B42 /* NotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				462C64272A68DAC800905B42 /* NotificationSetup.swift */,
+			);
+			path = NotificationManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +200,7 @@
 				057DD2EF2A68147700EC34DC /* DestinationListHelper.swift in Sources */,
 				059463172A67C10D009CB0FE /* StationList.swift in Sources */,
 				059463132A67B6A5009CB0FE /* Header.swift in Sources */,
+				462C64282A68DAC800905B42 /* NotificationSetup.swift in Sources */,
 				059463112A679BC6009CB0FE /* HomeView.swift in Sources */,
 				059463152A67B6DE009CB0FE /* EmptyState.swift in Sources */,
 				05FBAA9F2A66382B009DD600 /* ContentView.swift in Sources */,
@@ -320,9 +334,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MRTGo/Preview Content\"";
-				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
+				DEVELOPMENT_TEAM = JDBL69MT8F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MRTGo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = MRTGo;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = test;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -349,9 +370,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MRTGo/Preview Content\"";
-				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
+				DEVELOPMENT_TEAM = JDBL69MT8F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MRTGo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = MRTGo;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = test;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
