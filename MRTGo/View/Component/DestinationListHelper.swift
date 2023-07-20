@@ -16,6 +16,6 @@ func matchedDestination(destinationPlace: [Destination], destination: String) ->
 }
 
 let destinationPlace = [
-    Destination(name: "Hotel Pullman Jakarta", exitGate: "Stasiun Bundaran HI (Exit 1A)"),
-    Destination(name: "testdata", exitGate: "Stasiun Bundaran HI (Exit 1A)")
+    Destination(name: "Hotel Pullman Jakarta", exitGate: "Stasiun Bundaran HI (Exit 1A)", location: (-6.1931170,106.8237489)),
+//    Destination(name: "testdata", exitGate: "Stasiun Bundaran HI (Exit 1A)")
 ]

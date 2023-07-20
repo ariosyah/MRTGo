@@ -13,9 +13,6 @@ struct HomeView: View {
     @State private var destination = ""
     @State private var isDepartureChosen = false
     @State private var isDestinationChosen = false
-    
-    @StateObject var notificationManager = NotificationManager()
-
 
     var body: some View {
         GeometryReader { geometry in
@@ -40,6 +37,19 @@ struct HomeView: View {
                             }
 
 
+                Button {
+                    if isDepartureChosen && isDestinationChosen {
+                        print("Notification Active!!!")
+                        
+                        let departureLocation = stations.first(where: { $0.name == departure })!.location
+                        let destinationLocation = destinationPlace.first(where: {$0.name == destination})!.location
+                        
+                        NotificationManager.shared.detectLocation(location: (departureLocation.latitude, departureLocation.longitude), name: departure)
+                        NotificationManager.shared.detectLocation(location: (destinationLocation.latitude,destinationLocation.longitude), name: destination)
+                    }
+                } label: {
+                    Text("submit")
+                }
 
                 Spacer()
             }

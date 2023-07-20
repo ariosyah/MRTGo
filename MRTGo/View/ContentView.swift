@@ -10,15 +10,11 @@ import CoreLocation
 import UserNotifications
 
 struct ContentView: View {
-    @StateObject var notificationManager = NotificationManager()
-   
-    
     var body: some View {
         HomeView()
             .onAppear{
-                notificationManager.requestNotificationPermission()
-                notificationManager.detectLocation()
-                notificationManager.requestLocationPermission()
+                NotificationManager.shared.requestNotificationPermission()
+                NotificationManager.shared.requestLocationPermission()
         }
     }
 }

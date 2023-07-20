@@ -9,6 +9,7 @@ import SwiftUI
 struct Station {
     var name: String
     var exitCount: Int
+    var location: (latitude: Double, longitude: Double)
 }
 
 struct StationList: View {
