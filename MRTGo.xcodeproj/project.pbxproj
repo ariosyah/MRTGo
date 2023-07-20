@@ -18,6 +18,9 @@
 		05FBAA9F2A66382B009DD600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBAA9E2A66382B009DD600 /* ContentView.swift */; };
 		05FBAAA12A66382C009DD600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05FBAAA02A66382C009DD600 /* Assets.xcassets */; };
 		05FBAAA42A66382C009DD600 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05FBAAA32A66382C009DD600 /* Preview Assets.xcassets */; };
+		E81C3E922A68D070009F232F /* TripPlanView_OnTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C3E912A68D070009F232F /* TripPlanView_OnTrip.swift */; };
+		E81C3E962A68DE50009F232F /* ProgressItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C3E952A68DE50009F232F /* ProgressItem.swift */; };
+		E81C3E982A69003E009F232F /* NavigationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C3E972A69003E009F232F /* NavigationStep.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,11 @@
 		05FBAA9E2A66382B009DD600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		05FBAAA02A66382C009DD600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05FBAAA32A66382C009DD600 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E81C3E912A68D070009F232F /* TripPlanView_OnTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanView_OnTrip.swift; sourceTree = "<group>"; };
+		E81C3E932A68D6D9009F232F /* HelveticaNeue.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeue.ttc; sourceTree = "<group>"; };
+		E81C3E942A68D6EE009F232F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E81C3E952A68DE50009F232F /* ProgressItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressItem.swift; sourceTree = "<group>"; };
+		E81C3E972A69003E009F232F /* NavigationStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStep.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,8 @@
 				059463142A67B6DE009CB0FE /* EmptyState.swift */,
 				057DD2EC2A68133700EC34DC /* StationListHelper.swift */,
 				057DD2EE2A68147700EC34DC /* DestinationListHelper.swift */,
+				E81C3E952A68DE50009F232F /* ProgressItem.swift */,
+				E81C3E972A69003E009F232F /* NavigationStep.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -62,6 +72,7 @@
 		05FBAA902A66382B009DD600 = {
 			isa = PBXGroup;
 			children = (
+				E81C3E932A68D6D9009F232F /* HelveticaNeue.ttc */,
 				05FBAA9B2A66382B009DD600 /* MRTGo */,
 				05FBAA9A2A66382B009DD600 /* Products */,
 			);
@@ -78,6 +89,7 @@
 		05FBAA9B2A66382B009DD600 /* MRTGo */ = {
 			isa = PBXGroup;
 			children = (
+				E81C3E942A68D6EE009F232F /* Info.plist */,
 				05FBAA9C2A66382B009DD600 /* MRTGoApp.swift */,
 				05FBAAAB2A663848009DD600 /* Model */,
 				05FBAAAA2A663837009DD600 /* View */,
@@ -100,6 +112,7 @@
 			children = (
 				059463102A679BC6009CB0FE /* HomeView.swift */,
 				05FBAA9E2A66382B009DD600 /* ContentView.swift */,
+				E81C3E912A68D070009F232F /* TripPlanView_OnTrip.swift */,
 				0594630B2A6648BE009CB0FE /* Component */,
 			);
 			path = View;
@@ -191,7 +204,10 @@
 				059463152A67B6DE009CB0FE /* EmptyState.swift in Sources */,
 				05FBAA9F2A66382B009DD600 /* ContentView.swift in Sources */,
 				05FBAA9D2A66382B009DD600 /* MRTGoApp.swift in Sources */,
+				E81C3E922A68D070009F232F /* TripPlanView_OnTrip.swift in Sources */,
+				E81C3E962A68DE50009F232F /* ProgressItem.swift in Sources */,
 				057DD2EB2A67F8A200EC34DC /* DestinationList.swift in Sources */,
+				E81C3E982A69003E009F232F /* NavigationStep.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +339,7 @@
 				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MRTGo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -352,6 +369,7 @@
 				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MRTGo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
