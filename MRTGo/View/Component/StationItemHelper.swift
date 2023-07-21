@@ -21,7 +21,7 @@ func matchedStationsDestination(stations: [StationItemData], stationName: String
 }
 
 let stationItemDataArray = [
-    StationItemData(name: "Stasiun Lebak Bulus Grab", exit: 4),
+    StationItemData(name: "Stasiun Bundaran HI", exit: 4),
     StationItemData(name: "Stasiun Fatmawati Indomaret", exit: 4),
     StationItemData(name: "Stasiun Cipete Raya", exit: 5)
     
