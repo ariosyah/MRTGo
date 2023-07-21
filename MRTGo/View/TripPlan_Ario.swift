@@ -29,7 +29,6 @@ struct TripPlan_Ario: View {
                 
                 //Progress Item
                 ProgressItem(destination: $destination,departure: $departure)
-                    .padding(.horizontal,24)
                 Spacer()
             }
             Button(action: {

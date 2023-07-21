@@ -26,13 +26,13 @@ struct ProgressItem: View {
                                     .frame(width: 20,height: 20)
                                     .foregroundColor(Color(uiColor:.systemBackground))
                             )
-                        StripLine(color: Color("Secondary"), width: 4, height: revealDetails ? 300 : 50)
+                        StripLine(color: Color("Secondary"), width: 4, height: revealDetails ? 320 : 36)
                     }
                     
                     VStack(alignment:.leading,spacing: 0){
                         HStack{
                             //Define location name
-                            Text("Stasiun Lebak Bulus")
+                            Text("\(departure)")
                                 .font(Font.custom("HelveticaNeue", size: 16))
                                 .foregroundColor(.black)
                                 .bold()
@@ -45,16 +45,19 @@ struct ProgressItem: View {
                                 ForEach(stations, id: \.self) { station in
                                     Text(station)
                                         .font(Font.custom("HelveticaNeue", size: 16))
-                                        .foregroundColor(Color("Gray-500"))
+                                        .foregroundColor(Color("Gray-400"))
                                 }
                             }
                         }
+                        .font(Font.custom("HelveticaNeue", size: 16))
+                        .foregroundColor(revealDetails ? Color(.black) : Color("Gray-500"))
                         .frame(width: 150)
-                        .accentColor(Color("Gray-500"))
+                        .padding(.top,10)
+                        .accentColor(revealDetails ? Color(.black) : Color("Gray-500"))
                         Spacer()
                     }
+                    
                 }
-                .listRowSeparator(.hidden)
                 //Target Station
                 HStack(spacing:16) {
                     VStack(spacing:0){
@@ -66,24 +69,23 @@ struct ProgressItem: View {
                                     .frame(width: 20,height: 20)
                                     .foregroundColor(Color(uiColor:.systemBackground))
                             )
-                        StripLine(color: Color("Secondary"), width: 4, height: 50)
+                        StripLine(color: Color("Secondary"), width: 4, height: 36)
                     }
                     VStack(alignment:.leading,spacing: 0){
                         HStack{
                             //Define location name
-                            Text("\(departure)")
+                            Text("Stasiun Bundaran HI")
                                 .font(Font.custom("HelveticaNeue", size: 16))
                                 .foregroundColor(.black)
                                 .bold()
                         }
-                        Text("100 meter menuju Exit 1 (Pintu A)")
+                        Text("menuju Exit 1 (Pintu A)")
                             .font(Font.custom("HelveticaNeue", size: 16))
                             .foregroundColor(Color("Primary"))
                             .fontWeight(.medium)
                         Spacer()
                     }
                 }
-                .listRowSeparator(.hidden)
                 //Destination Target
                 HStack(spacing:16) {
                     VStack(spacing:0){

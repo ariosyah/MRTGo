@@ -21,13 +21,6 @@ struct DestinationList: View {
            return matchedDestination(destinationPlace: destinationPlace, destination: destination)
        }
     
-//    private func filteredDestination() -> [Destination] {
-//        if destination.isEmpty {
-//            return destinationPlace
-//        } else {
-//            return destinationPlace.filter { $0.name.lowercased().contains(destination.lowercased()) }
-//        }
-//    }
 
     var body: some View {
         VStack(alignment: .leading) {
