@@ -60,7 +60,7 @@ struct TripPlanView_OnTrip: View {
             .sheet(isPresented: $isShowingNavigation) {
                 VStack(alignment: .leading,spacing: 16){
                     HStack{
-                        VStack(alignment: .leading){
+                        VStack(alignment: .leading,spacing: 8){
                             Text("Exit (Pintu A)")
                                 .font(Font.custom("HelveticaNeue",size:18))
                                 .fontWeight(.bold)

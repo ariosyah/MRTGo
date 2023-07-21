@@ -71,7 +71,7 @@ struct ProgressItem: View {
                             )
                         StripLine(color: Color("Secondary"), width: 4, height: 36)
                     }
-                    VStack(alignment:.leading,spacing: 0){
+                    VStack(alignment:.leading,spacing: 4){
                         HStack{
                             //Define location name
                             Text("Stasiun Bundaran HI")

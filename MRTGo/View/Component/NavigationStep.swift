@@ -16,7 +16,7 @@ struct NavigationStep: View {
                 instruction.dataImage
                     .resizable()
                     .frame(width: 36, height: 36)
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading,spacing: 4) {
                     Text(instruction.dataTitle)
                         .font(Font.custom("HelveticaNeue", size: 16))
                         .fontWeight(.bold)
