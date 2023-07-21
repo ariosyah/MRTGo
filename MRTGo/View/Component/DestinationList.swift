@@ -10,6 +10,7 @@ import SwiftUI
 struct Destination {
     var name: String
     var exitGate: String
+    var location: (latitude: Double, longitude: Double)
 }
 
 struct DestinationList: View {

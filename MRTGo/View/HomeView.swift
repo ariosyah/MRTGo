@@ -14,7 +14,6 @@ struct HomeView: View {
     @State private var isDepartureChosen = false
     @State private var isDestinationChosen = false
 
-
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -48,10 +47,27 @@ struct HomeView: View {
                 }
 
 
+                Button {
+                    if isDepartureChosen && isDestinationChosen {
+                        print("Notification Active!!!")
+                        
+                        let departureLocation = stations.first(where: { $0.name == departure })!.location
+                        let bunderanHILocation = stations.first(where: {$0.name == "Stasiun Bundaran HI"})!.location
+                        let destinationLocation = destinationPlace.first(where: {$0.name == destination})!.location
+                        
+                        NotificationManager.shared.detectLocation(location: (departureLocation.latitude, departureLocation.longitude), name: departure)
+                        NotificationManager.shared.detectLocation(location: (bunderanHILocation.latitude,bunderanHILocation.longitude), name: "Stasiun Bundaran HI")
+                        NotificationManager.shared.detectLocation(location: (destinationLocation.latitude,destinationLocation.longitude), name: destination)
+                    }
+                } label: {
+                    Text("submit")
+                }
 
                 Spacer()
             }
+            
         }
+        
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
             withAnimation {
                 isKeyboardActive = true
@@ -64,8 +80,6 @@ struct HomeView: View {
         }
     }
 }
-
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
