@@ -33,6 +33,7 @@ struct HomeView: View {
                     } else {
                         StationList(departure: $departure, isDepartureChosen: $isDepartureChosen)
                     }
+                    
         
                 } else {
                     

@@ -33,14 +33,10 @@ struct Header: View {
                     Image("marker-pin-departure")
                         .resizable()
                         .frame(width: 24, height: 24)
-                    if isDepartureChosen {
-                        Text("") // Show the departure name when it's chosen
-                            .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(Color("Primary"))
-                            .padding(.leading, 40)
-                    } else if departure.isEmpty {
+                    
+                    if departure.isEmpty {
                         Text("Pilih Stasiun Keberangkatan")
-                            .font(.system(size: 14, weight: .medium))
+                            .font(.system(size: 16, weight: .medium))
                             .foregroundColor(Color("Primary"))
                             .padding(.leading, 40)
                     }
@@ -60,41 +56,24 @@ struct Header: View {
                 .padding(.horizontal, 20)
                 .padding(.vertical, 5)
                 .onChange(of: departure) { newValue in
-                                    // Check if the entered text matches any station
-                    isDepartureChosen = matchedStations(stations: stations, departure: departure).isEmpty
+                    isDepartureChosen = matchedStations(stations: stations, departure: departure, isDepartureChosen: isDepartureChosen).isEmpty
+                    isDepartureChosen = (stations.first(where: { station in
+                        station.name == newValue
+                    }) != nil)
                 }
-                
-//                .onChange(of: departure) { newValue in
-//                    if newValue.isEmpty {
-//                        // Textfield is empty
-//                        // Set the departure variable to display the placeholder again
-//                        departure = ""
-//                        isDepartureChosen = false
-//                    }
-//                }
 
                 // Destination Textfield
                 ZStack(alignment: .leading) {
-                    Image("marker-pin-destination")
+                    Image(!isDepartureChosen ? "marker-pin-destination-disabled" : "marker-pin-destination")
                         .resizable()
                         .frame(width: 24, height: 24)
-                    if isDestinationChosen {
-                        Text("") // Show the departure name when it's chosen
-                            .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(Color("Primary"))
-                            .padding(.leading, 40)
-                    } else if destination.isEmpty {
+                    
+                    if destination.isEmpty {
                         Text("Pilih Tujuan")
-                            .font(.system(size: 14, weight: .medium))
-                            .foregroundColor(Color("Primary"))
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(!isDepartureChosen ? Color("Gray-400") : Color("Primary"))
                             .padding(.leading, 40)
                     }
-//                    if destination.isEmpty {
-//                        Text("Pilih Tujuan")
-//                            .font(.system(size: 14, weight: .medium))
-//                            .foregroundColor(Color("Primary"))
-//                            .padding(.leading, 40)
-//                    }
 
                     TextField("", text: $destination)
                         .padding(.leading, 40)
@@ -112,7 +91,10 @@ struct Header: View {
                 .padding(.vertical, 5)
                 .onChange(of: destination) { newValue in
                                     // Check if the entered text matches any station
-                    isDestinationChosen = matchedDestination(destinationPlace: destinationPlace, destination: destination).isEmpty
+                    isDestinationChosen = matchedDestination(destinationPlace: destinationPlace, destination: destination, isDestinationChosen: isDestinationChosen).isEmpty
+                    isDestinationChosen = (destinationPlace.first(where: { destinations in
+                        destinations.name == newValue
+                    }) != nil)
                 }
             }
             .padding(.bottom, 40)
