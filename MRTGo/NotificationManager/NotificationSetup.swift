@@ -13,6 +13,8 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
     var notificationCenter = UNUserNotificationCenter.current()
     private let locationManager = CLLocationManager()
     
+    var notificationDictionary = [CLRegion:String]()
+    
     private override init() { }
     static let shared = NotificationManager()
     
@@ -35,17 +37,19 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
         
         let center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         
-        let region = CLCircularRegion(center: center, radius: 500.0, identifier: UUID().uuidString + "/" + name)
+        let region = CLCircularRegion(center: center, radius: 500.0, identifier: UUID().uuidString)
         region.notifyOnEntry = true
         region.notifyOnExit = false
         
         locationManager.startMonitoring(for: region)
+        notificationDictionary[region] = name
         
         print("track" + region.identifier)
     }
     
     func requestLocationPermission(){
         locationManager.delegate = self
+//       locationManager.monitoredRegions
         locationManager.requestWhenInUseAuthorization()
     }
     
@@ -67,17 +71,15 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("notif" + region.identifier)
-        let name = region.identifier.split(separator: "/")
-        if name.count > 1 {
-            notificationHandler(name: String(name[1]))
-        }
+        notificationHandler(name: notificationDictionary[region] ?? "")
+        notificationDictionary[region] = nil
+        locationManager.stopMonitoring(for: region)
     }
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         completionHandler()
     }
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler(.banner)
     }

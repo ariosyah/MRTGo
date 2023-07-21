@@ -42,9 +42,11 @@ struct HomeView: View {
                         print("Notification Active!!!")
                         
                         let departureLocation = stations.first(where: { $0.name == departure })!.location
+                        let bunderanHILocation = stations.first(where: {$0.name == "Stasiun Bundaran HI"})!.location
                         let destinationLocation = destinationPlace.first(where: {$0.name == destination})!.location
                         
                         NotificationManager.shared.detectLocation(location: (departureLocation.latitude, departureLocation.longitude), name: departure)
+                        NotificationManager.shared.detectLocation(location: (bunderanHILocation.latitude,bunderanHILocation.longitude), name: "Stasiun Bundaran HI")
                         NotificationManager.shared.detectLocation(location: (destinationLocation.latitude,destinationLocation.longitude), name: destination)
                     }
                 } label: {
@@ -56,7 +58,6 @@ struct HomeView: View {
             
         }
         
-     
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
             withAnimation {
                 isKeyboardActive = true
@@ -68,10 +69,7 @@ struct HomeView: View {
             }
         }
     }
-    
 }
-
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
