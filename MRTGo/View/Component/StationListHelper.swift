@@ -7,12 +7,22 @@
 
 import Foundation
 
-func matchedStations(stations: [Station], departure: String) -> [Station] {
+//func matchedStations(stations: [Station], departure: String) -> [Station] {
+//    if departure.isEmpty {
+//        return stations
+//    } else {
+//        return stations.filter { $0.name.lowercased().contains(departure.lowercased()) }
+//    }
+//}
+
+func matchedStations(stations: [Station], departure: String, isDepartureChosen: Bool) -> [Station] {
+    var matchedStation: [Station] = []
     if departure.isEmpty {
-        return stations
-    } else {
-        return stations.filter { $0.name.lowercased().contains(departure.lowercased()) }
+        matchedStation = stations
+    } else if !isDepartureChosen {
+        matchedStation = stations.filter { $0.name.lowercased().contains(departure.lowercased()) }
     }
+    return matchedStation
 }
 
 let stations = [

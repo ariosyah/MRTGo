@@ -18,7 +18,7 @@ struct DestinationList: View {
     @Binding var isDestinationChosen: Bool
     
     private func filteredDestination() -> [Destination] {
-           return matchedDestination(destinationPlace: destinationPlace, destination: destination)
+        return matchedDestination(destinationPlace: destinationPlace, destination: destination, isDestinationChosen: isDestinationChosen)
        }
     
 //    private func filteredDestination() -> [Destination] {
@@ -52,6 +52,7 @@ struct DestinationList: View {
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(destinations.name)
                                         .font(.system(size: 16, weight: .medium))
+                                        .foregroundColor(.black)
                                     Text("\(destinations.exitGate)")
                                         .font(.system(size: 16, weight: .medium))
                                         .foregroundColor(Color("Gray-400"))
