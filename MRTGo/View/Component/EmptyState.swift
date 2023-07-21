@@ -30,7 +30,6 @@ struct EmptyState: View {
                     .font(.system(size: 14, weight: .regular))
                 
                 Button(action: {
-                    print("test")
                     DestinationList(destination: $destination, isDestinationChosen: $isDestinationChosen)
                 }) {
                     

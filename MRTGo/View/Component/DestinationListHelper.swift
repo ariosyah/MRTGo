@@ -7,12 +7,22 @@
 
 import Foundation
 
-func matchedDestination(destinationPlace: [Destination], destination: String) -> [Destination] {
+//func matchedDestination(destinationPlace: [Destination], destination: String) -> [Destination] {
+//    if destination.isEmpty {
+//        return destinationPlace
+//    } else {
+//        return destinationPlace.filter { $0.name.lowercased().contains(destination.lowercased()) }
+//    }
+//}
+
+func matchedDestination(destinationPlace: [Destination], destination: String, isDestinationChosen: Bool) -> [Destination] {
+    var matchedDestination: [Destination] = []
     if destination.isEmpty {
-        return destinationPlace
-    } else {
-        return destinationPlace.filter { $0.name.lowercased().contains(destination.lowercased()) }
+        matchedDestination = destinationPlace
+    } else if !isDestinationChosen {
+        matchedDestination = destinationPlace.filter { $0.name.lowercased().contains(destination.lowercased()) }
     }
+    return matchedDestination
 }
 
 //let destinationPlace = [
@@ -53,4 +63,5 @@ let destinationPlace = [
 //    Destination(name: "Jalan Sunda", exitGate: "Stasiun Bundaran HI (Exit 6 - Pintu F)"),
 //    Destination(name: "Sarinah", exitGate: "Stasiun Bundaran HI (Exit 6 - Pintu F)"),
 //    Destination(name: "Jalan KH Wahid Hasyim", exitGate: "Stasiun Bundaran HI (Exit 6 - Pintu F)")
+
 ]

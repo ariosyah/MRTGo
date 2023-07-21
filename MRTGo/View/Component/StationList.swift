@@ -19,8 +19,9 @@ struct StationList: View {
     
     // Function to filter stations based on the search text
     private func filteredStations() -> [Station] {
-           return matchedStations(stations: stations, departure: departure)
+        return matchedStations(stations: stations, departure: departure, isDepartureChosen: isDepartureChosen)
        }
+    
     //    var matchedStations: [Station] {
 //        return stations.filter { $0.name.lowercased().contains(departure.lowercased()) }
 //    }
@@ -57,6 +58,7 @@ struct StationList: View {
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(station.name)
                                         .font(.system(size: 16, weight: .medium))
+                                        .foregroundColor(.black)
                                     Text("\(station.exitCount) Exit")
                                         .font(.system(size: 16, weight: .medium))
                                         .foregroundColor(Color("Gray-400"))

@@ -14,11 +14,17 @@
 		059463132A67B6A5009CB0FE /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059463122A67B6A5009CB0FE /* Header.swift */; };
 		059463152A67B6DE009CB0FE /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059463142A67B6DE009CB0FE /* EmptyState.swift */; };
 		059463172A67C10D009CB0FE /* StationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059463162A67C10D009CB0FE /* StationList.swift */; };
+		05D73C5F2A6946EE00E8D860 /* TripPlan_Ario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D73C5E2A6946EE00E8D860 /* TripPlan_Ario.swift */; };
 		05FBAA9D2A66382B009DD600 /* MRTGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBAA9C2A66382B009DD600 /* MRTGoApp.swift */; };
 		05FBAA9F2A66382B009DD600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBAA9E2A66382B009DD600 /* ContentView.swift */; };
 		05FBAAA12A66382C009DD600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05FBAAA02A66382C009DD600 /* Assets.xcassets */; };
 		05FBAAA42A66382C009DD600 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05FBAAA32A66382C009DD600 /* Preview Assets.xcassets */; };
 		462C64282A68DAC800905B42 /* NotificationSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C64272A68DAC800905B42 /* NotificationSetup.swift */; };
+		E81C3E922A68D070009F232F /* TripPlanView_OnTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C3E912A68D070009F232F /* TripPlanView_OnTrip.swift */; };
+		E81C3E962A68DE50009F232F /* ProgressItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C3E952A68DE50009F232F /* ProgressItem.swift */; };
+		E81C3E982A69003E009F232F /* NavigationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C3E972A69003E009F232F /* NavigationStep.swift */; };
+		E81C3E9A2A691E88009F232F /* AttractionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C3E992A691E88009F232F /* AttractionList.swift */; };
+		E81C3E9C2A6935CE009F232F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C3E9B2A6935CE009F232F /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,13 +35,20 @@
 		059463122A67B6A5009CB0FE /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		059463142A67B6DE009CB0FE /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		059463162A67C10D009CB0FE /* StationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationList.swift; sourceTree = "<group>"; };
+		05D73C5E2A6946EE00E8D860 /* TripPlan_Ario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlan_Ario.swift; sourceTree = "<group>"; };
 		05FBAA992A66382B009DD600 /* MRTGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MRTGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05FBAA9C2A66382B009DD600 /* MRTGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTGoApp.swift; sourceTree = "<group>"; };
 		05FBAA9E2A66382B009DD600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		05FBAAA02A66382C009DD600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05FBAAA32A66382C009DD600 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		462C64272A68DAC800905B42 /* NotificationSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSetup.swift; sourceTree = "<group>"; };
-		46C6C5422A68FD4700C592AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E81C3E912A68D070009F232F /* TripPlanView_OnTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanView_OnTrip.swift; sourceTree = "<group>"; };
+		E81C3E932A68D6D9009F232F /* HelveticaNeue.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeue.ttc; sourceTree = "<group>"; };
+		E81C3E942A68D6EE009F232F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E81C3E952A68DE50009F232F /* ProgressItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressItem.swift; sourceTree = "<group>"; };
+		E81C3E972A69003E009F232F /* NavigationStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStep.swift; sourceTree = "<group>"; };
+		E81C3E992A691E88009F232F /* AttractionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionList.swift; sourceTree = "<group>"; };
+		E81C3E9B2A6935CE009F232F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +71,8 @@
 				059463142A67B6DE009CB0FE /* EmptyState.swift */,
 				057DD2EC2A68133700EC34DC /* StationListHelper.swift */,
 				057DD2EE2A68147700EC34DC /* DestinationListHelper.swift */,
+				E81C3E952A68DE50009F232F /* ProgressItem.swift */,
+				E81C3E972A69003E009F232F /* NavigationStep.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -65,6 +80,7 @@
 		05FBAA902A66382B009DD600 = {
 			isa = PBXGroup;
 			children = (
+				E81C3E932A68D6D9009F232F /* HelveticaNeue.ttc */,
 				05FBAA9B2A66382B009DD600 /* MRTGo */,
 				05FBAA9A2A66382B009DD600 /* Products */,
 			);
@@ -81,13 +97,14 @@
 		05FBAA9B2A66382B009DD600 /* MRTGo */ = {
 			isa = PBXGroup;
 			children = (
-				46C6C5422A68FD4700C592AB /* Info.plist */,
 				462C64262A68D81400905B42 /* NotificationManager */,
+				E81C3E942A68D6EE009F232F /* Info.plist */,
 				05FBAA9C2A66382B009DD600 /* MRTGoApp.swift */,
 				05FBAAAB2A663848009DD600 /* Model */,
 				05FBAAAA2A663837009DD600 /* View */,
 				05FBAAA02A66382C009DD600 /* Assets.xcassets */,
 				05FBAAA22A66382C009DD600 /* Preview Content */,
+				E81C3E9B2A6935CE009F232F /* Constants.swift */,
 			);
 			path = MRTGo;
 			sourceTree = "<group>";
@@ -104,7 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				059463102A679BC6009CB0FE /* HomeView.swift */,
+				05D73C5E2A6946EE00E8D860 /* TripPlan_Ario.swift */,
 				05FBAA9E2A66382B009DD600 /* ContentView.swift */,
+				E81C3E912A68D070009F232F /* TripPlanView_OnTrip.swift */,
 				0594630B2A6648BE009CB0FE /* Component */,
 			);
 			path = View;
@@ -113,6 +132,7 @@
 		05FBAAAB2A663848009DD600 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E81C3E992A691E88009F232F /* AttractionList.swift */,
 			);
 			name = Model;
 			path = View;
@@ -198,14 +218,20 @@
 			files = (
 				057DD2ED2A68133700EC34DC /* StationListHelper.swift in Sources */,
 				057DD2EF2A68147700EC34DC /* DestinationListHelper.swift in Sources */,
+				05D73C5F2A6946EE00E8D860 /* TripPlan_Ario.swift in Sources */,
 				059463172A67C10D009CB0FE /* StationList.swift in Sources */,
 				059463132A67B6A5009CB0FE /* Header.swift in Sources */,
 				462C64282A68DAC800905B42 /* NotificationSetup.swift in Sources */,
 				059463112A679BC6009CB0FE /* HomeView.swift in Sources */,
+				E81C3E9A2A691E88009F232F /* AttractionList.swift in Sources */,
 				059463152A67B6DE009CB0FE /* EmptyState.swift in Sources */,
 				05FBAA9F2A66382B009DD600 /* ContentView.swift in Sources */,
 				05FBAA9D2A66382B009DD600 /* MRTGoApp.swift in Sources */,
+				E81C3E922A68D070009F232F /* TripPlanView_OnTrip.swift in Sources */,
+				E81C3E962A68DE50009F232F /* ProgressItem.swift in Sources */,
+				E81C3E9C2A6935CE009F232F /* Constants.swift in Sources */,
 				057DD2EB2A67F8A200EC34DC /* DestinationList.swift in Sources */,
+				E81C3E982A69003E009F232F /* NavigationStep.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +360,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MRTGo/Preview Content\"";
-				DEVELOPMENT_TEAM = JDBL69MT8F;
+				DEVELOPMENT_TEAM = 4MZKC63S4P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MRTGo/Info.plist;
@@ -370,7 +396,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MRTGo/Preview Content\"";
-				DEVELOPMENT_TEAM = JDBL69MT8F;
+				DEVELOPMENT_TEAM = 4MZKC63S4P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MRTGo/Info.plist;
