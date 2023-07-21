@@ -8,113 +8,115 @@
 import SwiftUI
 
 struct ProgressItem: View {
-    var a = 1
     @Binding var destination : String
     @Binding var departure : String
     @State private var revealDetails = false
     private let stations = ["Stasiun Fatmawati", "Stasiun Cipete Raya", "Stasiun Haji Nawi", "Stasiun Haji Blok A", "Stasiun Haji Blok M", "Stasiun Sisimangraja", "Stasiun Senayan", "Stasiun Istora", "Stasiun Benhil", "Stasiun Setiabudi"]
     var body: some View {
-        VStack(alignment:.leading,spacing: 0){
+        List{
             //Based Station
-            HStack(spacing:16) {
-                VStack(spacing:0){
-                    Circle()
-                        .frame(width: 36,height: 36)
-                        .foregroundColor(Color("Secondary"))
-                        .overlay(
-                            Circle()
-                                .frame(width: 20,height: 20)
-                                .foregroundColor(Color(uiColor:.systemBackground))
-                        )
-                    StripLine(color: Color("Secondary"), width: 4, height: revealDetails ? 300 : 50)
-                }
-//                .frame(height: .infinity)
-                VStack(alignment:.leading,spacing: 0){
-                    HStack{
-                        //Define location name
-                        Text("Stasiun Lebak Bulus")
-                            .font(Font.custom("HelveticaNeue", size: 16))
-                            .foregroundColor(a == 1 ? .black : .blue)
-                            .bold()
-                        Image("marker-pin-departure")
-                            .resizable()
-                            .frame(width: 24,height: 24)
+            VStack(alignment: .leading,spacing: 0){
+                HStack(spacing:16) {
+                    VStack(spacing:0){
+                        Circle()
+                            .frame(width: 36,height: 36)
+                            .foregroundColor(Color("Secondary"))
+                            .overlay(
+                                Circle()
+                                    .frame(width: 20,height: 20)
+                                    .foregroundColor(Color(uiColor:.systemBackground))
+                            )
+                        StripLine(color: Color("Secondary"), width: 4, height: revealDetails ? 300 : 50)
                     }
-                    DisclosureGroup("11 Perhentian", isExpanded: $revealDetails) {
-                        VStack(alignment: .leading,spacing: 10){
-                            ForEach(stations, id: \.self) { station in
-                                Text(station)
-                                    .font(Font.custom("HelveticaNeue", size: 16))
-                                    .foregroundColor(Color("Gray-500"))
+                    
+                    VStack(alignment:.leading,spacing: 0){
+                        HStack{
+                            //Define location name
+                            Text("Stasiun Lebak Bulus")
+                                .font(Font.custom("HelveticaNeue", size: 16))
+                                .foregroundColor(.black)
+                                .bold()
+                            Image("marker-pin-departure")
+                                .resizable()
+                                .frame(width: 24,height: 24)
+                        }
+                        DisclosureGroup("11 Perhentian", isExpanded: $revealDetails) {
+                            VStack(alignment: .leading,spacing: 10){
+                                ForEach(stations, id: \.self) { station in
+                                    Text(station)
+                                        .font(Font.custom("HelveticaNeue", size: 16))
+                                        .foregroundColor(Color("Gray-500"))
+                                }
                             }
                         }
+                        .frame(width: 150)
+                        .accentColor(Color("Gray-500"))
+                        Spacer()
                     }
-                    .frame(width: 150)
-                    .accentColor(Color("Gray-500"))
-                    Spacer()
                 }
-            }
-            //Target Station
-            HStack(spacing:16) {
-                VStack(spacing:0){
-                    Circle()
-                        .frame(width: 36,height: 36)
-                        .foregroundColor(Color("Secondary"))
-                        .overlay(
-                            Circle()
-                                .frame(width: 20,height: 20)
-                                .foregroundColor(Color(uiColor:.systemBackground))
-                        )
-                    StripLine(color: Color("Secondary"), width: 4, height: 50)
-                }
-                VStack(alignment:.leading,spacing: 0){
-                    HStack{
-                        //Define location name
-                        Text("\(departure)")
+                .listRowSeparator(.hidden)
+                //Target Station
+                HStack(spacing:16) {
+                    VStack(spacing:0){
+                        Circle()
+                            .frame(width: 36,height: 36)
+                            .foregroundColor(Color("Secondary"))
+                            .overlay(
+                                Circle()
+                                    .frame(width: 20,height: 20)
+                                    .foregroundColor(Color(uiColor:.systemBackground))
+                            )
+                        StripLine(color: Color("Secondary"), width: 4, height: 50)
+                    }
+                    VStack(alignment:.leading,spacing: 0){
+                        HStack{
+                            //Define location name
+                            Text("\(departure)")
+                                .font(Font.custom("HelveticaNeue", size: 16))
+                                .foregroundColor(.black)
+                                .bold()
+                        }
+                        Text("100 meter menuju Exit 1 (Pintu A)")
                             .font(Font.custom("HelveticaNeue", size: 16))
-                            .foregroundColor(a == 1 ? .black : .blue)
-                            .bold()
+                            .foregroundColor(Color("Primary"))
+                            .fontWeight(.medium)
+                        Spacer()
                     }
-                    Text("100 meter menuju Exit 1 (Pintu A)")
-                        .font(Font.custom("HelveticaNeue", size: 16))
-                        .foregroundColor(Color("Primary"))
-                        .fontWeight(.medium)
-                    Spacer()
+                }
+                .listRowSeparator(.hidden)
+                //Destination Target
+                HStack(spacing:16) {
+                    VStack(spacing:0){
+                        Circle()
+                            .frame(width: 36,height: 36)
+                            .foregroundColor(Color("Secondary"))
+                            .overlay(
+                                Circle()
+                                    .frame(width: 20,height: 20)
+                                    .foregroundColor(Color(uiColor:.systemBackground))
+                            )
+                        Spacer()
+                    }
+                    VStack(alignment:.leading,spacing: 0){
+                        HStack{
+                            //Define location name
+                            Text("\(destination)")
+                                .font(Font.custom("HelveticaNeue", size: 16))
+                                .foregroundColor(.black)
+                                .bold()
+                            Image("marker-pin-destination")
+                                .resizable()
+                                .frame(width: 24,height: 24)
+                        }
+                        Spacer()
+                            
+                    }
+                    .padding(.vertical,4)
                 }
             }
-            //Destination Target
-            HStack(spacing:16) {
-                VStack(spacing:0){
-                    Circle()
-                        .frame(width: 36,height: 36)
-                        .foregroundColor(Color("Secondary"))
-                        .overlay(
-                            Circle()
-                                .frame(width: 20,height: 20)
-                                .foregroundColor(Color(uiColor:.systemBackground))
-                        )
-                    Spacer()
-                }
-                VStack(alignment:.leading,spacing: 0){
-                    HStack{
-                        //Define location name
-                        Text("\(destination)")
-                            .font(Font.custom("HelveticaNeue", size: 16))
-                            .foregroundColor(a == 1 ? .black : .blue)
-                            .bold()
-                        Image("marker-pin-destination")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                    }
-                    Spacer()
-                        
-                }
-                .padding(.vertical,4)
-            }
-            
-            
+            .listRowSeparator(.hidden)
         }
-        .frame(height: 297)
+        .listStyle(PlainListStyle())
     }
 }
 
