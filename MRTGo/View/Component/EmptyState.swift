@@ -31,6 +31,7 @@ struct EmptyState: View {
                 
                 Button(action: {
                     print("test")
+                    //Attach ExplorationView disini
                     DestinationList(destination: $destination, isDestinationChosen: $isDestinationChosen)
                 }) {
                     
