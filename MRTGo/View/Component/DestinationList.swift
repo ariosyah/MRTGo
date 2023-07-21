@@ -46,7 +46,7 @@ struct DestinationList: View {
                             isDestinationChosen = true
                         }) {
                             HStack(spacing: 10) {
-                                Image("train")
+                                Image("marker-pin-destination")
                                     .resizable()
                                     .frame(width: 24, height: 24)
                                 VStack(alignment: .leading, spacing: 2) {
