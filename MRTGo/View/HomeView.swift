@@ -18,6 +18,7 @@ struct HomeView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                
                 // Header
                 Header(departure: $departure, destination: $destination, isDepartureChosen: $isDepartureChosen, isDestinationChosen: $isDestinationChosen) // Pass isDepartureChosen as a binding
                     .frame(width: geometry.size.width, height: 200)
@@ -26,16 +27,24 @@ struct HomeView: View {
 
                 // Empty State
                 if isKeyboardActive {
-                                if isDepartureChosen {
-                                    DestinationList(destination: $destination, isDestinationChosen: $isDestinationChosen)
-                                } else {
-                                    StationList(departure: $departure, isDepartureChosen: $isDepartureChosen)
-                                }
                     
-                            } else {
-                                EmptyState(departure: $departure, destination: $destination, isDepartureChosen: $isDepartureChosen, isDestinationChosen: $isDestinationChosen)
-                                    .opacity(1)
-                            }
+                    if isDepartureChosen {
+                        DestinationList(destination: $destination, isDestinationChosen: $isDestinationChosen)
+                    } else {
+                        StationList(departure: $departure, isDepartureChosen: $isDepartureChosen)
+                    }
+        
+                } else {
+                    
+                    if isDestinationChosen && isDepartureChosen {
+                        TripPlan_Ario(departure: $departure, destination: $destination)
+                    } else {
+                        EmptyState(departure: $departure, destination: $destination, isDepartureChosen: $isDepartureChosen, isDestinationChosen: $isDestinationChosen)
+                            .opacity(1)
+                    }
+                    
+                    
+                }
 
 
 
