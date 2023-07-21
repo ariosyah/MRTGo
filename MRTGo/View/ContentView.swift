@@ -12,6 +12,7 @@ import UserNotifications
 struct ContentView: View {
     
     var body: some View {
+
         HomeView()
             .onAppear{
                 NotificationManager.shared.requestNotificationPermission()

@@ -19,6 +19,14 @@
 		05FBAA9F2A66382B009DD600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBAA9E2A66382B009DD600 /* ContentView.swift */; };
 		05FBAAA12A66382C009DD600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05FBAAA02A66382C009DD600 /* Assets.xcassets */; };
 		05FBAAA42A66382C009DD600 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05FBAAA32A66382C009DD600 /* Preview Assets.xcassets */; };
+		3C7D500C2A68D58C0023C935 /* DestinationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D500B2A68D58C0023C935 /* DestinationCard.swift */; };
+		3C7D500E2A68E7B10023C935 /* DestinationCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D500D2A68E7B10023C935 /* DestinationCardList.swift */; };
+		3C7D50102A68EB820023C935 /* ExplorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D500F2A68EB820023C935 /* ExplorationView.swift */; };
+		3C7D50122A68F1790023C935 /* HeaderExploration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D50112A68F1790023C935 /* HeaderExploration.swift */; };
+		3C7D50142A68F7FE0023C935 /* DetailExplorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D50132A68F7FE0023C935 /* DetailExplorationView.swift */; };
+		3C7D50162A68FB2A0023C935 /* StationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D50152A68FB2A0023C935 /* StationItem.swift */; };
+		3C7D50182A69414F0023C935 /* DestinationCardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D50172A69414F0023C935 /* DestinationCardHelper.swift */; };
+		3C7D501A2A6947E10023C935 /* StationItemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D50192A6947E10023C935 /* StationItemHelper.swift */; };
 		462C64282A68DAC800905B42 /* NotificationSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C64272A68DAC800905B42 /* NotificationSetup.swift */; };
 		E81C3E922A68D070009F232F /* TripPlanView_OnTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C3E912A68D070009F232F /* TripPlanView_OnTrip.swift */; };
 		E81C3E962A68DE50009F232F /* ProgressItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C3E952A68DE50009F232F /* ProgressItem.swift */; };
@@ -41,6 +49,14 @@
 		05FBAA9E2A66382B009DD600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		05FBAAA02A66382C009DD600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05FBAAA32A66382C009DD600 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3C7D500B2A68D58C0023C935 /* DestinationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCard.swift; sourceTree = "<group>"; };
+		3C7D500D2A68E7B10023C935 /* DestinationCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCardList.swift; sourceTree = "<group>"; };
+		3C7D500F2A68EB820023C935 /* ExplorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorationView.swift; sourceTree = "<group>"; };
+		3C7D50112A68F1790023C935 /* HeaderExploration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderExploration.swift; sourceTree = "<group>"; };
+		3C7D50132A68F7FE0023C935 /* DetailExplorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailExplorationView.swift; sourceTree = "<group>"; };
+		3C7D50152A68FB2A0023C935 /* StationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationItem.swift; sourceTree = "<group>"; };
+		3C7D50172A69414F0023C935 /* DestinationCardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCardHelper.swift; sourceTree = "<group>"; };
+		3C7D50192A6947E10023C935 /* StationItemHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationItemHelper.swift; sourceTree = "<group>"; };
 		462C64272A68DAC800905B42 /* NotificationSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSetup.swift; sourceTree = "<group>"; };
 		E81C3E912A68D070009F232F /* TripPlanView_OnTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanView_OnTrip.swift; sourceTree = "<group>"; };
 		E81C3E932A68D6D9009F232F /* HelveticaNeue.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeue.ttc; sourceTree = "<group>"; };
@@ -66,9 +82,15 @@
 			isa = PBXGroup;
 			children = (
 				059463122A67B6A5009CB0FE /* Header.swift */,
+				3C7D50112A68F1790023C935 /* HeaderExploration.swift */,
+				3C7D500D2A68E7B10023C935 /* DestinationCardList.swift */,
+				3C7D500B2A68D58C0023C935 /* DestinationCard.swift */,
 				059463162A67C10D009CB0FE /* StationList.swift */,
+				3C7D50152A68FB2A0023C935 /* StationItem.swift */,
 				057DD2EA2A67F8A200EC34DC /* DestinationList.swift */,
 				059463142A67B6DE009CB0FE /* EmptyState.swift */,
+				3C7D50192A6947E10023C935 /* StationItemHelper.swift */,
+				3C7D50172A69414F0023C935 /* DestinationCardHelper.swift */,
 				057DD2EC2A68133700EC34DC /* StationListHelper.swift */,
 				057DD2EE2A68147700EC34DC /* DestinationListHelper.swift */,
 				E81C3E952A68DE50009F232F /* ProgressItem.swift */,
@@ -121,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				059463102A679BC6009CB0FE /* HomeView.swift */,
+				3C7D500F2A68EB820023C935 /* ExplorationView.swift */,
+				3C7D50132A68F7FE0023C935 /* DetailExplorationView.swift */,
 				05D73C5E2A6946EE00E8D860 /* TripPlan_Ario.swift */,
 				05FBAA9E2A66382B009DD600 /* ContentView.swift */,
 				E81C3E912A68D070009F232F /* TripPlanView_OnTrip.swift */,
@@ -216,16 +240,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C7D500C2A68D58C0023C935 /* DestinationCard.swift in Sources */,
 				057DD2ED2A68133700EC34DC /* StationListHelper.swift in Sources */,
+				3C7D50182A69414F0023C935 /* DestinationCardHelper.swift in Sources */,
 				057DD2EF2A68147700EC34DC /* DestinationListHelper.swift in Sources */,
 				05D73C5F2A6946EE00E8D860 /* TripPlan_Ario.swift in Sources */,
 				059463172A67C10D009CB0FE /* StationList.swift in Sources */,
+				3C7D50102A68EB820023C935 /* ExplorationView.swift in Sources */,
+				3C7D50162A68FB2A0023C935 /* StationItem.swift in Sources */,
+				3C7D50122A68F1790023C935 /* HeaderExploration.swift in Sources */,
 				059463132A67B6A5009CB0FE /* Header.swift in Sources */,
 				462C64282A68DAC800905B42 /* NotificationSetup.swift in Sources */,
 				059463112A679BC6009CB0FE /* HomeView.swift in Sources */,
+				3C7D500E2A68E7B10023C935 /* DestinationCardList.swift in Sources */,
 				E81C3E9A2A691E88009F232F /* AttractionList.swift in Sources */,
 				059463152A67B6DE009CB0FE /* EmptyState.swift in Sources */,
+				3C7D501A2A6947E10023C935 /* StationItemHelper.swift in Sources */,
 				05FBAA9F2A66382B009DD600 /* ContentView.swift in Sources */,
+				3C7D50142A68F7FE0023C935 /* DetailExplorationView.swift in Sources */,
 				05FBAA9D2A66382B009DD600 /* MRTGoApp.swift in Sources */,
 				E81C3E922A68D070009F232F /* TripPlanView_OnTrip.swift in Sources */,
 				E81C3E962A68DE50009F232F /* ProgressItem.swift in Sources */,
@@ -375,6 +407,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -411,6 +444,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

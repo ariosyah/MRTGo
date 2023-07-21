@@ -30,6 +30,8 @@ struct EmptyState: View {
                     .font(.system(size: 14, weight: .regular))
                 
                 Button(action: {
+                    print("test")
+                    //Attach ExplorationView disini
                     DestinationList(destination: $destination, isDestinationChosen: $isDestinationChosen)
                 }) {
                     
