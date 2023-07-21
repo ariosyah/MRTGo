@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import CoreLocation
+import UserNotifications
 
 struct ContentView: View {
+    
     var body: some View {
-        NavigationView {
-            HomeView()
+
+        HomeView()
+            .onAppear{
+                NotificationManager.shared.requestNotificationPermission()
+                NotificationManager.shared.requestLocationPermission()
         }
     }
 }
