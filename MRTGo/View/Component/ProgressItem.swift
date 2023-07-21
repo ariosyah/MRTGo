@@ -10,7 +10,9 @@ import SwiftUI
 struct ProgressItem: View {
     var a = 1
     @Binding var destination : String
+    @Binding var departure : String
     @State private var revealDetails = false
+    private let stations = ["Stasiun Fatmawati", "Stasiun Cipete Raya", "Stasiun Haji Nawi", "Stasiun Haji Blok A", "Stasiun Haji Blok M", "Stasiun Sisimangraja", "Stasiun Senayan", "Stasiun Istora", "Stasiun Benhil", "Stasiun Setiabudi"]
     var body: some View {
         VStack(alignment:.leading,spacing: 0){
             //Based Station
@@ -24,9 +26,9 @@ struct ProgressItem: View {
                                 .frame(width: 20,height: 20)
                                 .foregroundColor(Color(uiColor:.systemBackground))
                         )
-                    StripLine(color: Color("Secondary"), width: 4, height: .infinity)
+                    StripLine(color: Color("Secondary"), width: 4, height: revealDetails ? 300 : 50)
                 }
-                .frame(height: .infinity)
+//                .frame(height: .infinity)
                 VStack(alignment:.leading,spacing: 0){
                     HStack{
                         //Define location name
@@ -40,21 +42,14 @@ struct ProgressItem: View {
                     }
                     DisclosureGroup("11 Perhentian", isExpanded: $revealDetails) {
                         VStack(alignment: .leading,spacing: 10){
-                            Text("Stasiun Fatmawati")
-                            Text("Stasiun Cipete Raya")
-                            Text("Stasiun Haji Nawi")
-                            Text("Stasiun Haji Blok A")
-                            Text("Stasiun Haji Blok M")
-                            Text("Stasiun Sisimangraja")
-                            Text("Stasiun Senayan")
-                            Text("Stasiun Istora")
-                            Text("Stasiun Benhil")
-                            Text("Stasiun Setiabudi")
+                            ForEach(stations, id: \.self) { station in
+                                Text(station)
+                                    .font(Font.custom("HelveticaNeue", size: 16))
+                                    .foregroundColor(Color("Gray-500"))
+                            }
                         }
                     }
                     .frame(width: 150)
-                    .foregroundColor(Color("Gray-500"))
-                    .font(Font.custom("HelveticaNeue", size: 16))
                     .accentColor(Color("Gray-500"))
                     Spacer()
                 }
@@ -70,12 +65,12 @@ struct ProgressItem: View {
                                 .frame(width: 20,height: 20)
                                 .foregroundColor(Color(uiColor:.systemBackground))
                         )
-                    StripLine(color: Color("Secondary"), width: 4, height: .infinity)
+                    StripLine(color: Color("Secondary"), width: 4, height: 50)
                 }
                 VStack(alignment:.leading,spacing: 0){
                     HStack{
                         //Define location name
-                        Text("Stasiun Lebak Bulus")
+                        Text("\(departure)")
                             .font(Font.custom("HelveticaNeue", size: 16))
                             .foregroundColor(a == 1 ? .black : .blue)
                             .bold()
@@ -137,6 +132,6 @@ struct StripLine: View {
 
 struct ProgressItem_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressItem(destination: .constant("Hotel Pullman Jakarta"))
+        ProgressItem(destination: .constant("Hotel Pullman Jakarta"),departure: .constant("Stasiun Lebak Bulus"))
     }
 }

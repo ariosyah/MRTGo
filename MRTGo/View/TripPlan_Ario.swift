@@ -11,10 +11,9 @@ struct TripPlan_Ario: View {
     @State private var isShowingNavigation = false
     @Binding var departure : String
     @Binding var destination : String
+
     
     var body: some View {
-        // Trip Plan
-        
         VStack{
             VStack(alignment: .leading){
                 
@@ -29,9 +28,8 @@ struct TripPlan_Ario: View {
                 .padding(24)
                 
                 //Progress Item
-                ProgressItem(destination: $destination)
+                ProgressItem(destination: $destination,departure: $departure)
                     .padding(.horizontal,24)
-                    .frame(height: .infinity)
                 Spacer()
             }
             Button(action: {
@@ -82,10 +80,4 @@ struct TripPlan_Ario: View {
             
         }
     }
-    
-//    struct TripPlan_Ario_Previews: PreviewProvider {
-//        static var previews: some View {
-//            TripPlan_Ario()
-//        }
-//    }
 }

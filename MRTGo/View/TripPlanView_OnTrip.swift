@@ -15,6 +15,7 @@ struct TripPlanView_OnTrip: View {
     @Binding var isDestinationChosen : Bool
     @State private var isShowingNavigation = false
     
+    
     var body: some View {
         GeometryReader { geometry in
             VStack{
@@ -34,9 +35,10 @@ struct TripPlanView_OnTrip: View {
                     .padding(24)
                     
                     //Progress Item
-                    ProgressItem(destination: $destination)
+                    ProgressItem(destination: $destination,departure: $departure)
                         .padding(.horizontal,24)
                         .frame(height: .infinity)
+                        .fixedSize(horizontal: false, vertical: true)
                     Spacer()
                 }
                 Button(action: {
@@ -92,6 +94,6 @@ struct TripPlanView_OnTrip: View {
 
 struct TripPlanView_OnTrip_Previews: PreviewProvider {
     static var previews: some View {
-        TripPlanView_OnTrip(isKeyboardActive: .constant(true), departure: .constant(""), destination: .constant("Hotel Pullman Jakarta"), isDepartureChosen: .constant(false), isDestinationChosen: .constant(false))
+        TripPlanView_OnTrip(isKeyboardActive: .constant(true), departure: .constant("Stasiun Lebak Bulus"), destination: .constant("Hotel Pullman Jakarta"), isDepartureChosen: .constant(false), isDestinationChosen: .constant(false))
     }
 }
