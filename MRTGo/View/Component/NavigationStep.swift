@@ -10,7 +10,6 @@ import SwiftUI
 
 struct NavigationStep: View {
     var instruction: Instruction
-    
     var body: some View {
         VStack(spacing: 12) {
             HStack(spacing: 12) {
