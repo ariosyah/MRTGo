@@ -51,10 +51,18 @@ struct TripPlan_Ario: View {
             VStack(alignment: .leading,spacing: 16){
                 HStack{
                     VStack(alignment: .leading){
-                        Text("Exit (Pintu A)")
-                            .font(Font.custom("HelveticaNeue",size:18))
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("Primary"))
+                        if let attractionList = Constants.attractions.first(where: { $0.nearbyAttractions.contains(where: { $0.lowercased() == destination.lowercased() }) }) {
+                            Text(attractionList.name)
+                                .font(Font.custom("HelveticaNeue", size: 18))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("Primary"))
+                        } else {
+                            // Handle the case when there is no relevant attraction list for the given destination
+                            Text("Unknown Exit")
+                                .font(Font.custom("HelveticaNeue", size: 18))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("Primary"))
+                        }
                         
                         Text("Stasiun Bundaran HI")
                             .font(Font.custom("HelveticaNeue",size:16))

@@ -79,7 +79,7 @@ struct ProgressItem: View {
                                 .foregroundColor(.black)
                                 .bold()
                         }
-                        Text("menuju Exit 1 (Pintu A)")
+                        Text("Menuju Exit 1 (Pintu A)")
                             .font(Font.custom("HelveticaNeue", size: 16))
                             .foregroundColor(Color("Primary"))
                             .fontWeight(.medium)
