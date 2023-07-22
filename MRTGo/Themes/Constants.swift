@@ -13,7 +13,7 @@ class Constants {
     }
     
     static let attractions: [AttractionList] = [
-            AttractionList(name: "Exit A", nearbyAttractions: ["Plaza Indonesia", "Hotel Indonesia Kempinski", "Grand Indonesia", "Monumen Selamat Datang"], instructions: [
+            AttractionList(name: "Exit 1 (Pintu A)", nearbyAttractions: ["Plaza Indonesia", "Hotel Indonesia Kempinski", "Grand Indonesia", "Monumen Selamat Datang"], instructions: [
                 Instruction(dataTitle: "Keluar Kereta", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Keluar Kereta")),
                 Instruction(dataTitle: "Naik Tangga", dataSubtitle: "3 Menit", dataImage: Image("Naik Tangga")),
                 Instruction(dataTitle: "Tap Out", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Tap Out")),
@@ -27,7 +27,7 @@ class Constants {
                 Instruction(dataTitle: "Keluar Stasiun", dataSubtitle: "3 Menit", dataImage: Image("Keluar Stasiun"))
             ]),
             // Add more attraction lists here as needed
-            AttractionList(name: "Exit B", nearbyAttractions: ["Gedung Indonesia One", "Kedubes Jepang", "Lippo Thamrin", "Hotel Four Season Points Thamrin"], instructions: [
+            AttractionList(name: "Exit 2 (Pintu B)", nearbyAttractions: ["Gedung Indonesia One", "Kedubes Jepang", "Lippo Thamrin", "Hotel Four Season Points Thamrin"], instructions: [
                 Instruction(dataTitle: "Keluar Kereta", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Keluar Kereta")),
                 Instruction(dataTitle: "Naik Tangga", dataSubtitle: "3 Menit", dataImage: Image("Naik Tangga")),
                 Instruction(dataTitle: "Tap Out", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Tap Out")),
@@ -35,7 +35,7 @@ class Constants {
                 Instruction(dataTitle: "Belok Kiri menuju Tangga/Eskalator", dataSubtitle: "1 Menit", dataImage: Image("Belok Kiri")),
                 Instruction(dataTitle: "Keluar Stasiun", dataSubtitle: "3 Menit", dataImage: Image("Keluar Stasiun"))
             ]),
-            AttractionList(name: "Exit C", nearbyAttractions: ["Halte Transjakarta"], instructions: [
+            AttractionList(name: "Exit 3 (Pintu C)", nearbyAttractions: ["Halte Transjakarta"], instructions: [
                 Instruction(dataTitle: "Keluar Kereta", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Keluar Kereta")),
                 Instruction(dataTitle: "Naik Tangga", dataSubtitle: "3 Menit", dataImage: Image("Naik Tangga")),
                 Instruction(dataTitle: "Tap Out", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Tap Out")),
@@ -48,7 +48,7 @@ class Constants {
                 Instruction(dataTitle: "Jalan menuju Tangga", dataSubtitle: "1 Menit", dataImage: Image("Jalan Menuju")),
                 Instruction(dataTitle: "Keluar Stasiun", dataSubtitle: "3 Menit", dataImage: Image("Keluar Stasiun"))
             ]),
-            AttractionList(name: "Exit D", nearbyAttractions: ["Plaza Bank Index", "Hotel Pullman Jakarta", "Wisma Nusantara", "Kantor PT MRT Jakarta", "Bundaran HI", "Jalan Sultan Syahrir", "Polsubsektor Thamrin", "Deutsche Bank", "Jalan Imam Bonjol"], instructions: [
+            AttractionList(name: "Exit 4 (Pintu D)", nearbyAttractions: ["Plaza Bank Index", "Hotel Pullman Jakarta", "Wisma Nusantara", "Kantor PT MRT Jakarta", "Bundaran HI", "Jalan Sultan Syahrir", "Polsubsektor Thamrin", "Deutsche Bank", "Jalan Imam Bonjol"], instructions: [
                 Instruction(dataTitle: "Keluar Kereta", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Keluar Kereta")),
                 Instruction(dataTitle: "Naik Tangga", dataSubtitle: "3 Menit", dataImage: Image("Naik Tangga")),
                 Instruction(dataTitle: "Tap Out", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Tap Out")),
@@ -59,7 +59,7 @@ class Constants {
                 Instruction(dataTitle: "Jalan menuju Eskalator", dataSubtitle: "1 Menit", dataImage: Image("Jalan Menuju")),
                 Instruction(dataTitle: "Keluar Stasiun", dataSubtitle: "3 Menit", dataImage: Image("Keluar Stasiun"))
             ]),
-            AttractionList(name: "Exit E", nearbyAttractions: ["Jalan MH Thamrin", "Pertamina Lubricants"], instructions: [
+            AttractionList(name: "Exit 5 (Pintu E)", nearbyAttractions: ["Jalan MH Thamrin", "Pertamina Lubricants"], instructions: [
                 Instruction(dataTitle: "Keluar Kereta", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Keluar Kereta")),
                 Instruction(dataTitle: "Naik Tangga", dataSubtitle: "3 Menit", dataImage: Image("Naik Tangga")),
                 Instruction(dataTitle: "Tap Out", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Tap Out")),
@@ -70,7 +70,7 @@ class Constants {
                 Instruction(dataTitle: "Jalan menuju Tangga", dataSubtitle: "1 Menit", dataImage: Image("Jalan Menuju")),
                 Instruction(dataTitle: "Keluar Stasiun", dataSubtitle: "3 Menit", dataImage: Image("Keluar Stasiun"))
             ]),
-            AttractionList(name: "Exit F", nearbyAttractions: ["Sinarmas", "Institut Francais Indonesia", "Kedutaan Besar Perancis", "Jalan Sunda", "Sarinah", "Jalan KH Wahid Hasyim"], instructions: [
+            AttractionList(name: "Exit 6 (Pintu F)", nearbyAttractions: ["Sinarmas", "Institut Francais Indonesia", "Kedutaan Besar Perancis", "Jalan Sunda", "Sarinah", "Jalan KH Wahid Hasyim"], instructions: [
                 Instruction(dataTitle: "Keluar Kereta", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Keluar Kereta")),
                 Instruction(dataTitle: "Naik Tangga", dataSubtitle: "3 Menit", dataImage: Image("Naik Tangga")),
                 Instruction(dataTitle: "Tap Out", dataSubtitle: "Stasiun Bundaran HI", dataImage: Image("Tap Out")),

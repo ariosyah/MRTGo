@@ -102,9 +102,6 @@
 		05FBAA902A66382B009DD600 = {
 			isa = PBXGroup;
 			children = (
-				E81C3E932A68D6D9009F232F /* HelveticaNeue.ttc */,
-				E81C3E942A68D6EE009F232F /* Info.plist */,
-				05FBAA9C2A66382B009DD600 /* MRTGoApp.swift */,
 				05FBAA9B2A66382B009DD600 /* MRTGo */,
 				05FBAA9A2A66382B009DD600 /* Products */,
 			);
@@ -121,6 +118,8 @@
 		05FBAA9B2A66382B009DD600 /* MRTGo */ = {
 			isa = PBXGroup;
 			children = (
+				05FBAA9C2A66382B009DD600 /* MRTGoApp.swift */,
+				E81C3E942A68D6EE009F232F /* Info.plist */,
 				E8FBE5FB2A6BDE700089C5DC /* Themes */,
 				E8FBE5FA2A6BDE340089C5DC /* App */,
 				462C64262A68D81400905B42 /* NotificationManager */,
@@ -180,6 +179,7 @@
 		E8FBE5FB2A6BDE700089C5DC /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				E81C3E932A68D6D9009F232F /* HelveticaNeue.ttc */,
 				E81C3E9B2A6935CE009F232F /* Constants.swift */,
 				05FBAAA02A66382C009DD600 /* Assets.xcassets */,
 			);
@@ -415,7 +415,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = MRTGo;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Izinkan “Rencana Perjalanan MRTJ” untuk mengakses lokasi anda?";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = test;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -452,7 +452,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = MRTGo;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Izinkan “Rencana Perjalanan MRTJ” untuk mengakses lokasi anda?";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = test;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

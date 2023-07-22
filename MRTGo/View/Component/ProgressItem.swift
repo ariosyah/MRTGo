@@ -56,8 +56,8 @@ struct ProgressItem: View {
                         .accentColor(revealDetails ? Color(.black) : Color("Gray-500"))
                         Spacer()
                     }
-                    
                 }
+                .animation(nil, value: UUID())
                 //Target Station
                 HStack(spacing:16) {
                     VStack(spacing:0){
@@ -79,13 +79,23 @@ struct ProgressItem: View {
                                 .foregroundColor(.black)
                                 .bold()
                         }
-                        Text("Menuju Exit 1 (Pintu A)")
-                            .font(Font.custom("HelveticaNeue", size: 16))
-                            .foregroundColor(Color("Primary"))
-                            .fontWeight(.medium)
+                        if let attractionList = Constants.attractions.first(where: { $0.nearbyAttractions.contains(where: { $0.lowercased() == destination.lowercased() }) }) {
+                            Text("Menuju \(attractionList.name)")
+                                .font(Font.custom("HelveticaNeue", size: 16))
+                                .foregroundColor(Color("Primary"))
+                                .fontWeight(.medium)
+                        }
+                        else {
+                            Text("Menuju Surga")
+                                .font(Font.custom("HelveticaNeue", size: 16))
+                                .foregroundColor(Color("Primary"))
+                                .fontWeight(.medium)
+                        }
+                        
                         Spacer()
                     }
                 }
+                .animation(nil, value: UUID())
                 //Destination Target
                 HStack(spacing:16) {
                     VStack(spacing:0){
@@ -111,10 +121,11 @@ struct ProgressItem: View {
                                 .frame(width: 24,height: 24)
                         }
                         Spacer()
-                            
+                        
                     }
                     .padding(.vertical,4)
                 }
+                .animation(nil, value: UUID())
             }
             .listRowSeparator(.hidden)
         }
