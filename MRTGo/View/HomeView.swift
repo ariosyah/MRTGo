@@ -13,6 +13,8 @@ struct HomeView: View {
     @State private var destination = ""
     @State private var isDepartureChosen = false
     @State private var isDestinationChosen = false
+    @Environment(\.colorScheme) var colorScheme
+
     let stations = [Station]().self
 
     var body: some View {
@@ -66,6 +68,7 @@ struct HomeView: View {
 
                 Spacer()
             }
+            .background(colorScheme == .light ? Color.white : Color("Gray-950"))
             
         }
         

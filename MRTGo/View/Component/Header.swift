@@ -12,12 +12,14 @@ struct Header: View {
     @Binding var destination: String
     @Binding var isDepartureChosen: Bool
     @Binding var isDestinationChosen: Bool
+    @Environment(\.colorScheme) var colorScheme
 
+    
     var body: some View {
         ZStack {
             // Blue Header
             Rectangle()
-                .foregroundColor(Color("Primary"))
+                .foregroundColor(colorScheme == .light ? Color("Primary") : Color("Gray-800"))
                 .ignoresSafeArea(.all)
                 .frame(width: 400, height: 200)
 
@@ -51,7 +53,7 @@ struct Header: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color.white)
+                .background(colorScheme == .light ? .white : Color("Gray-950"))
                 .cornerRadius(200)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 5)
@@ -85,7 +87,10 @@ struct Header: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(!isDepartureChosen ? Color("Gray-300") : .white)
+                .background(
+                    colorScheme == .dark && !isDepartureChosen ? Color("Gray-600") : (colorScheme == .light && !isDepartureChosen ? Color("Gray-300") : (colorScheme == .light ? .white : Color("Gray-950")))
+
+                )
                 .cornerRadius(200)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 5)

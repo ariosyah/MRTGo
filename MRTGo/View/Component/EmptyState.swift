@@ -12,10 +12,11 @@ struct EmptyState: View {
     @Binding var destination: String
     @Binding var isDepartureChosen: Bool
     @Binding var isDestinationChosen: Bool
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack{
-            Image("illustration")
+            Image(colorScheme == .light ? "illustration" : "illustration-dark")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 227, height: 271)

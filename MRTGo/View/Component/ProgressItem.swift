@@ -15,6 +15,8 @@ struct ProgressItem: View {
     @State private var onTargetLocation = false
     @State private var onDestinationLocation = false
     @State private var counts = 0
+    @Environment(\.colorScheme) var colorScheme
+
     let stations: [Station]
     var body: some View {
         List{
@@ -28,7 +30,7 @@ struct ProgressItem: View {
                             .overlay(
                                 Circle()
                                     .frame(width: 20,height: 20)
-                                    .foregroundColor(Color(uiColor:.systemBackground))
+                                    .foregroundColor(colorScheme == .light ? Color.white : Color("Gray-950"))
                             )
                         if onBasedLocation == true {
                             StripLine(color: Color("Secondary"), width: 4, height: revealDetails ? 350 : 36)
@@ -44,7 +46,7 @@ struct ProgressItem: View {
                             //Define location name
                             Text("\(departure)")
                                 .font(Font.custom("HelveticaNeue", size: 16))
-                                .foregroundColor(.black)
+                                .foregroundColor(colorScheme == .light ? .black : .white)
                                 .bold()
                             Image("marker-pin-departure")
                                 .resizable()
@@ -61,10 +63,10 @@ struct ProgressItem: View {
                             Spacer()
                         }
                         .font(Font.custom("HelveticaNeue", size: 16))
-                        .foregroundColor(revealDetails ? Color(.black) : Color("Gray-500"))
+                        .foregroundColor(revealDetails ? colorScheme == .light ? Color.black : Color.white : Color("Gray-500"))
                         .frame(width: 200)
                         .padding(.top,10)
-                        .accentColor(revealDetails ? Color(.black) : Color("Gray-500"))
+                        .accentColor(revealDetails ? colorScheme == .light ? Color.black : Color.white : Color("Gray-500"))
                         Spacer()
                     }
                 }
@@ -78,7 +80,7 @@ struct ProgressItem: View {
                             .overlay(
                                 Circle()
                                     .frame(width: 20,height: 20)
-                                    .foregroundColor(Color(uiColor:.systemBackground))
+                                    .foregroundColor(colorScheme == .light ? Color.white : Color("Gray-950"))
                             )
                         if onDestinationLocation == true {
                             StripLine(color: Color("Secondary"), width: 4, height: 40)
@@ -96,7 +98,7 @@ struct ProgressItem: View {
                             //Define location name
                             Text("Stasiun Bundaran HI")
                                 .font(Font.custom("HelveticaNeue", size: 16))
-                                .foregroundColor(.black)
+                                .foregroundColor(colorScheme == .light ? .black : .white)
                                 .bold()
                         }
                         if let attractionList = Constants.attractions.first(where: { $0.nearbyAttractions.contains(where: { $0.lowercased() == destination.lowercased() }) }) {
@@ -126,7 +128,7 @@ struct ProgressItem: View {
                             .overlay(
                                 Circle()
                                     .frame(width: 20,height: 20)
-                                    .foregroundColor(Color(uiColor:.systemBackground))
+                                    .foregroundColor(colorScheme == .light ? Color.white : Color("Gray-950"))
                             )
                         Spacer()
                     }
@@ -135,7 +137,7 @@ struct ProgressItem: View {
                             //Define location name
                             Text("\(destination)")
                                 .font(Font.custom("HelveticaNeue", size: 16))
-                                .foregroundColor(.black)
+                                .foregroundColor(colorScheme == .light ? .black : .white)
                                 .bold()
                             Image("marker-pin-destination")
                                 .resizable()
@@ -148,7 +150,10 @@ struct ProgressItem: View {
                 }
                 .animation(nil, value: UUID())
             }
+            .listRowBackground(colorScheme == .light ? Color.white : Color("Gray-950"))
             .listRowSeparator(.hidden)
+            .frame(width: 400)
+            .padding(.trailing, 60)
         }
         .listStyle(PlainListStyle())
     }

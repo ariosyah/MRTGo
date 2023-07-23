@@ -17,6 +17,8 @@ struct StationList: View {
     
     @Binding var departure: String
     @Binding var isDepartureChosen: Bool
+    @Environment(\.colorScheme) var colorScheme
+
     
     // Function to filter stations based on the search text
     private func filteredStations() -> [Station] {
@@ -59,7 +61,7 @@ struct StationList: View {
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(station.name)
                                         .font(.system(size: 16, weight: .medium))
-                                        .foregroundColor(.black)
+                                        .foregroundColor(colorScheme == .light ? .black : .white)
                                     Text("\(station.exitCount) Exit")
                                         .font(.system(size: 16, weight: .medium))
                                         .foregroundColor(Color("Gray-400"))
