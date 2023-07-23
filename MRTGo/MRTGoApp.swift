@@ -10,6 +10,8 @@ import SwiftUI
 
 @main
 struct MRTGoApp: App {
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some Scene {
         WindowGroup {
             ContentView()

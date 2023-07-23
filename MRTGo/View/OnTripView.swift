@@ -11,6 +11,8 @@ struct OntripView: View {
     @State private var isShowingNavigation = false
     @Binding var departure : String
     @Binding var destination : String
+    @Environment(\.colorScheme) var colorScheme
+
     let stations: [Station]
 
     

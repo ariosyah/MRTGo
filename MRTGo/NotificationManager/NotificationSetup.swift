@@ -28,7 +28,7 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
         notificationCenter.delegate = self
         
         notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]){ (granted, error) in
-            
+           
             if granted {
                 print("notification permission granted")
             }else{

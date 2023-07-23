@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct HomeView: View {
     @State private var isKeyboardActive = false
@@ -13,77 +14,49 @@ struct HomeView: View {
     @State private var destination = ""
     @State private var isDepartureChosen = false
     @State private var isDestinationChosen = false
-    let stations = [Station]().self
+    @Environment(\.colorScheme) var colorScheme
+
+    // manage focus on text fields
+    @FocusState private var isDepartureFieldFocused: Bool
+    @FocusState private var isDestinationFieldFocused: Bool
+
+    let stations = [Station]()
 
     var body: some View {
-        NavigationView {
-            GeometryReader { geometry in
-                VStack {
-                    
-                    // Header
-                    Header(departure: $departure, destination: $destination, isDepartureChosen: $isDepartureChosen, isDestinationChosen: $isDestinationChosen) // Pass isDepartureChosen as a binding
-                        .frame(width: geometry.size.width, height: 200)
+        GeometryReader { geometry in
+            VStack {
+                // Header
+                Header(departure: $departure, destination: $destination, isDepartureChosen: $isDepartureChosen, isDestinationChosen: $isDestinationChosen)
+                    .frame(width: geometry.size.width, height: 200)
 
-                    Spacer()
+                Spacer()
 
-                    // Empty State
-                    if isKeyboardActive {
-                        
-                        if isDepartureChosen {
-                            DestinationList(destination: $destination, isDestinationChosen: $isDestinationChosen)
-                        } else {
-                            StationList(departure: $departure, isDepartureChosen: $isDepartureChosen)
-                        }
-                        
-            
+                // Empty State
+                if isKeyboardActive {
+
+                    if isDepartureChosen {
+                        DestinationList(destination: $destination, isDestinationChosen: $isDestinationChosen)
                     } else {
-                        
-                        if isDestinationChosen && isDepartureChosen {
-                            OntripView(departure: $departure, destination: $destination,stations: stations)
-                        } else {
-                            EmptyState(departure: $departure, destination: $destination, isDepartureChosen: $isDepartureChosen, isDestinationChosen: $isDestinationChosen)
-                                .opacity(1)
-                        }
-                        
-                        
+                        StationList(departure: $departure, isDepartureChosen: $isDepartureChosen)
                     }
 
-
-//                    Button {
-//                        if isDepartureChosen && isDestinationChosen {
-//                            print("Notification Active!!!")
-//                            
-//                            let departureLocation = nameList.stations.first(where: { $0.name == departure })!.location
-//                            let bunderanHILocation = nameList.stations.first(where: {$0.name == "Stasiun Bundaran HI"})!.location
-//                            let destinationLocation = destinationPlace.first(where: {$0.name == destination})!.location
-//                            
-//                            //disini ondeparture location kudu true
-//                            NotificationManager.shared.detectLocation(location: (departureLocation.latitude, departureLocation.longitude), name: departure)
-//                            //disini ontargetstation kudu true
-//                            NotificationManager.shared.detectLocation(location: (bunderanHILocation.latitude,bunderanHILocation.longitude), name: "Stasiun Bundaran HI")
-//                            //disini ondestinationlocation kudu true
-//                            NotificationManager.shared.detectLocation(location: (destinationLocation.latitude,destinationLocation.longitude), name: destination)
-//                        }
-//                    } label: {
-//                        Text("submit")
-//                    }
-
-                    Spacer()
+                } else {
+                    if isDestinationChosen && isDepartureChosen {
+                        // Show TripPlan_Ario when both departure and destination are chosen
+                        OntripView(departure: $departure, destination: $destination, stations: stations)
+                    } else {
+                        EmptyState(departure: $departure, destination: $destination, isDepartureChosen: $isDepartureChosen, isDestinationChosen: $isDestinationChosen)
+                            .opacity(1)
+                    }
                 }
-                .onAppear(perform: {
-//                    if let departureStation = nameList.stations.first(where: { $0.name == departure }) {
-//                        let departureLocation = departureStation.location
-//                        NotificationManager.shared.detectLocation(location: (departureLocation.latitude, departureLocation.longitude), name: departure)
-//                    } else {
-//                        // Handle the case when the departure station is not found in the nameList
-//                        print("Departure station not found.")
-//                    }
-                })
 
-
-                
+                Spacer()
             }
-
+        }
+        .background(colorScheme == .light ? Color.white : Color("Gray-950"))
+        .onTapGesture {
+            // Dismiss keyboard when outside field
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
             withAnimation {
@@ -95,6 +68,21 @@ struct HomeView: View {
                 isKeyboardActive = false
             }
         }
+        .onChange(of: isDepartureChosen) { newValue in
+            // When departure is chosen, set focus on the destination field
+            if newValue {
+                isDestinationFieldFocused = true
+            }
+        }
+        .onChange(of: isDestinationChosen) { newValue in
+            // When destination is chosen, resign focus from both fields
+            if newValue {
+                isDestinationFieldFocused = false
+                isDepartureFieldFocused = false
+            }
+        }
+        .focused($isDepartureFieldFocused) // Focus the departure field when isDepartureFieldFocused is true
+        .focused($isDestinationFieldFocused) // Focus the destination field when isDestinationFieldFocused is true
     }
 }
 
