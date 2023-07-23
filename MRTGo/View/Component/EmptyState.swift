@@ -28,13 +28,9 @@ struct EmptyState: View {
                     .padding(.top, 50)
                 Text("Silahkan pilih tujuan akhir diatas atau jelajahi destinasi")
                     .font(.system(size: 14, weight: .regular))
-                
-                Button(action: {
-                    print("test")
-                    //Attach ExplorationView disini
-                    DestinationList(destination: $destination, isDestinationChosen: $isDestinationChosen)
-                }) {
-                    
+                NavigationLink {
+                    ExplorationView()
+                } label: {
                     Text("Jelajahi Destinasi")
                         .font(.system(size: 16, weight: .medium))
                         .foregroundColor(.white)
@@ -54,7 +50,6 @@ struct EmptyState: View {
                 Text("Silahkan pilih stasiun keberangkatan diatas")
                     .font(.system(size: 14, weight: .regular))
             }
-           
         }
     }
 }

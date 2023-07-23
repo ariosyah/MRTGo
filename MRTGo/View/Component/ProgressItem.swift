@@ -57,7 +57,7 @@ struct ProgressItem: View {
                         }
                         if let _ = (stations.filter({ $0.name == departure }).first?.stopList.count) {
                             if (stations.filter({ $0.name == departure }).first?.stopList) == [""] {
-                              //kosongin aja say
+                                
                             }
                             else{
                                 DisclosureGroup("\((stations.filter({ $0.name == departure }).first?.stopList.count)!) Perhentian", isExpanded: $revealDetails) {
