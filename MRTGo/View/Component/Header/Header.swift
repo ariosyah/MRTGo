@@ -26,8 +26,8 @@ struct Header: View {
             // Textfield
             VStack {
                 Text("Rencana Perjalanan")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.white)
+                    .font(Font.custom("HelveticaNeue", size: 18))                    .foregroundColor(.white)
+                    .fontWeight(.bold)
                     .padding()
 
                 // Departure Textfield
@@ -38,7 +38,8 @@ struct Header: View {
                     
                     if departure.isEmpty {
                         Text("Pilih Stasiun Keberangkatan")
-                            .font(.system(size: 16, weight: .medium))
+                            .font(Font.custom("HelveticaNeue", size: 16))
+                            .fontWeight(.medium)
                             .foregroundColor(Color("Primary"))
                             .padding(.leading, 40)
                     }
@@ -46,7 +47,8 @@ struct Header: View {
 //                    TextField("", text: $departure) // Use the binding here
                     TextField("", text: $departure)
                         .padding(.leading, 40)
-                        .font(.system(size: 16, weight: .medium))
+                        .font(Font.custom("HelveticaNeue", size: 16))
+                        .fontWeight(.medium)
                         .foregroundColor(Color("Primary"))
                     
                 }
@@ -72,15 +74,16 @@ struct Header: View {
                     
                     if destination.isEmpty {
                         Text("Pilih Tujuan")
-                            .font(.system(size: 16, weight: .medium))
+                            .font(Font.custom("HelveticaNeue", size: 16))
+                            .fontWeight(.medium)
                             .foregroundColor(!isDepartureChosen ? Color("Gray-400") : Color("Primary"))
                             .padding(.leading, 40)
                     }
 
                     TextField("", text: $destination)
                         .padding(.leading, 40)
-                        .font(.system(size: 16, weight: .medium))
-                        .foregroundColor(Color("Primary"))
+                        .font(Font.custom("HelveticaNeue", size: 16))
+                        .fontWeight(.medium)                        .foregroundColor(Color("Primary"))
                         .disabled(!isDepartureChosen)
 
                 }

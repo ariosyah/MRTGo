@@ -24,12 +24,13 @@ struct EmptyState: View {
             
             if isDepartureChosen{
                 Text("Anda belum memilih destinasi")
-                    .font(.system(size: 18, weight: .bold))
+                    .font(Font.custom("HelveticaNeue", size: 18))
+                    .fontWeight(.bold)
                     .padding(.bottom, 2)
                     .padding(.top, 50)
                 Text("Silahkan pilih tujuan akhir diatas atau jelajahi destinasi")
-                    .font(.system(size: 14, weight: .regular))
-                
+                    .font(Font.custom("HelveticaNeue", size: 14))
+                    .fontWeight(.regular)
                 Button(action: {
                     print("test")
                     //Attach ExplorationView disini
@@ -37,7 +38,8 @@ struct EmptyState: View {
                 }) {
                     
                     Text("Jelajahi Destinasi")
-                        .font(.system(size: 16, weight: .medium))
+                        .font(Font.custom("HelveticaNeue", size: 16))
+                        .fontWeight(.medium)
                         .foregroundColor(.white)
                         .padding()
                         .frame(width: 342, height: 56)
@@ -49,11 +51,14 @@ struct EmptyState: View {
                 
             }else{
                 Text("Anda belum memilih stasiun")
-                    .font(.system(size: 18, weight: .bold))
+                    .font(Font.custom("HelveticaNeue", size: 18))
+                    .fontWeight(.bold)
                     .padding(.bottom, 2)
                     .padding(.top, 50)
                 Text("Silahkan pilih stasiun keberangkatan diatas")
-                    .font(.system(size: 14, weight: .regular))
+                    .font(Font.custom("HelveticaNeue", size: 14))
+                    .fontWeight(.regular)
+                
             }
            
         }
