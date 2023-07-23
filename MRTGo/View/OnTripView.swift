@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TripPlan_Ario: View {
+struct OntripView: View {
     @State private var isShowingNavigation = false
     @Binding var departure : String
     @Binding var destination : String
