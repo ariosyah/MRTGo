@@ -29,14 +29,10 @@ struct EmptyState: View {
                     .padding(.bottom, 2)
                     .padding(.top, 50)
                 Text("Silahkan pilih tujuan akhir diatas atau jelajahi destinasi")
-                    .font(Font.custom("HelveticaNeue", size: 14))
-                    .fontWeight(.regular)
-                Button(action: {
-                    print("test")
-                    //Attach ExplorationView disini
-                    DestinationList(destination: $destination, isDestinationChosen: $isDestinationChosen)
-                }) {
-                    
+                    .font(.system(size: 14, weight: .regular))
+                NavigationLink {
+                    ExplorationView()
+                } label: {
                     Text("Jelajahi Destinasi")
                         .font(Font.custom("HelveticaNeue", size: 16))
                         .fontWeight(.medium)
@@ -60,7 +56,6 @@ struct EmptyState: View {
                     .fontWeight(.regular)
                 
             }
-           
         }
     }
 }

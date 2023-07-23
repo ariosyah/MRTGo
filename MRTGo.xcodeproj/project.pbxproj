@@ -14,7 +14,7 @@
 		059463132A67B6A5009CB0FE /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059463122A67B6A5009CB0FE /* Header.swift */; };
 		059463152A67B6DE009CB0FE /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059463142A67B6DE009CB0FE /* EmptyState.swift */; };
 		059463172A67C10D009CB0FE /* StationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059463162A67C10D009CB0FE /* StationList.swift */; };
-		05D73C5F2A6946EE00E8D860 /* TripPlan_Ario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D73C5E2A6946EE00E8D860 /* TripPlan_Ario.swift */; };
+		05D73C5F2A6946EE00E8D860 /* OnTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D73C5E2A6946EE00E8D860 /* OnTripView.swift */; };
 		05FBAA9D2A66382B009DD600 /* MRTGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBAA9C2A66382B009DD600 /* MRTGoApp.swift */; };
 		05FBAA9F2A66382B009DD600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBAA9E2A66382B009DD600 /* ContentView.swift */; };
 		05FBAAA12A66382C009DD600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05FBAAA02A66382C009DD600 /* Assets.xcassets */; };
@@ -43,7 +43,7 @@
 		059463122A67B6A5009CB0FE /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		059463142A67B6DE009CB0FE /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		059463162A67C10D009CB0FE /* StationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationList.swift; sourceTree = "<group>"; };
-		05D73C5E2A6946EE00E8D860 /* TripPlan_Ario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlan_Ario.swift; sourceTree = "<group>"; };
+		05D73C5E2A6946EE00E8D860 /* OnTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTripView.swift; sourceTree = "<group>"; };
 		05FBAA992A66382B009DD600 /* MRTGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MRTGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05FBAA9C2A66382B009DD600 /* MRTGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTGoApp.swift; sourceTree = "<group>"; };
 		05FBAA9E2A66382B009DD600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				059463102A679BC6009CB0FE /* HomeView.swift */,
 				3C7D500F2A68EB820023C935 /* ExplorationView.swift */,
 				3C7D50132A68F7FE0023C935 /* DetailExplorationView.swift */,
-				05D73C5E2A6946EE00E8D860 /* TripPlan_Ario.swift */,
+				05D73C5E2A6946EE00E8D860 /* OnTripView.swift */,
 				05FBAA9E2A66382B009DD600 /* ContentView.swift */,
 				E81C3E912A68D070009F232F /* TripPlanView_OnTrip.swift */,
 				0594630B2A6648BE009CB0FE /* Component */,
@@ -300,7 +300,7 @@
 				057DD2ED2A68133700EC34DC /* StationListHelper.swift in Sources */,
 				3C7D50182A69414F0023C935 /* DestinationCardHelper.swift in Sources */,
 				057DD2EF2A68147700EC34DC /* DestinationListHelper.swift in Sources */,
-				05D73C5F2A6946EE00E8D860 /* TripPlan_Ario.swift in Sources */,
+				05D73C5F2A6946EE00E8D860 /* OnTripView.swift in Sources */,
 				059463172A67C10D009CB0FE /* StationList.swift in Sources */,
 				3C7D50102A68EB820023C935 /* ExplorationView.swift in Sources */,
 				3C7D50162A68FB2A0023C935 /* StationItem.swift in Sources */,
@@ -448,7 +448,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MRTGo/Preview Content\"";
-				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
+				DEVELOPMENT_TEAM = 4MZKC63S4P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MRTGo/Info.plist;
@@ -485,7 +485,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MRTGo/Preview Content\"";
-				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
+				DEVELOPMENT_TEAM = 4MZKC63S4P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MRTGo/Info.plist;
