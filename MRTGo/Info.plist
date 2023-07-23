@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSUserNotificationsUsageDescription</key>
-	<string>Tess</string>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>HelveticaNeue.ttc</string>
