@@ -10,6 +10,7 @@ import SwiftUI
 
 struct NavigationStep: View {
     var instruction: Instruction
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         VStack(spacing: 12) {
             HStack(spacing: 12) {
@@ -20,7 +21,7 @@ struct NavigationStep: View {
                     Text(instruction.dataTitle)
                         .font(Font.custom("HelveticaNeue", size: 16))
                         .fontWeight(.bold)
-                        .foregroundColor(.black)
+                        .foregroundColor(colorScheme == .light ? Color.black : Color.white)
                     
                     Text(instruction.dataSubtitle)
                         .font(Font.custom("HelveticaNeue", size: 16))

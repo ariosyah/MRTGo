@@ -17,6 +17,8 @@ struct DestinationList: View {
 
     @Binding var destination: String
     @Binding var isDestinationChosen: Bool
+    @Environment(\.colorScheme) var colorScheme
+
     
     private func filteredDestination() -> [Destination] {
         return matchedDestination(destinationPlace: destinationPlace, destination: destination, isDestinationChosen: isDestinationChosen)
@@ -26,7 +28,8 @@ struct DestinationList: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Pilih Tujuan")
-                .font(.system(size: 24, weight: .bold))
+                .font(Font.custom("HelveticaNeue", size: 24))
+                .fontWeight(.bold)
                 .foregroundColor(Color("Primary"))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
@@ -45,10 +48,12 @@ struct DestinationList: View {
                                     .frame(width: 24, height: 24)
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(destinations.name)
-                                        .font(.system(size: 16, weight: .medium))
-                                        .foregroundColor(.black)
+                                        .font(Font.custom("HelveticaNeue", size: 16))
+                                        .fontWeight(.medium)
+                                        .foregroundColor(colorScheme == .light ? .black : .white)
                                     Text("\(destinations.exitGate)")
-                                        .font(.system(size: 16, weight: .medium))
+                                        .font(Font.custom("HelveticaNeue", size: 16))
+                                        .fontWeight(.medium)
                                         .foregroundColor(Color("Gray-400"))
                                 }
                                 Spacer()

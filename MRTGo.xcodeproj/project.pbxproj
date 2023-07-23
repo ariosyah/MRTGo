@@ -78,23 +78,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0594630B2A6648BE009CB0FE /* Component */ = {
+		05377E852A6D6F81001AA00C /* Header */ = {
 			isa = PBXGroup;
 			children = (
 				059463122A67B6A5009CB0FE /* Header.swift */,
 				3C7D50112A68F1790023C935 /* HeaderExploration.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		05377E862A6D6F8D001AA00C /* Destination */ = {
+			isa = PBXGroup;
+			children = (
 				3C7D500D2A68E7B10023C935 /* DestinationCardList.swift */,
 				3C7D500B2A68D58C0023C935 /* DestinationCard.swift */,
+				057DD2EA2A67F8A200EC34DC /* DestinationList.swift */,
+				3C7D50172A69414F0023C935 /* DestinationCardHelper.swift */,
+				057DD2EE2A68147700EC34DC /* DestinationListHelper.swift */,
+			);
+			path = Destination;
+			sourceTree = "<group>";
+		};
+		05377E872A6D6F99001AA00C /* Station */ = {
+			isa = PBXGroup;
+			children = (
 				059463162A67C10D009CB0FE /* StationList.swift */,
 				3C7D50152A68FB2A0023C935 /* StationItem.swift */,
-				057DD2EA2A67F8A200EC34DC /* DestinationList.swift */,
-				059463142A67B6DE009CB0FE /* EmptyState.swift */,
 				3C7D50192A6947E10023C935 /* StationItemHelper.swift */,
-				3C7D50172A69414F0023C935 /* DestinationCardHelper.swift */,
 				057DD2EC2A68133700EC34DC /* StationListHelper.swift */,
-				057DD2EE2A68147700EC34DC /* DestinationListHelper.swift */,
+			);
+			path = Station;
+			sourceTree = "<group>";
+		};
+		05377E882A6D6FAF001AA00C /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				059463142A67B6DE009CB0FE /* EmptyState.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		05377E892A6D6FB6001AA00C /* Ontrip */ = {
+			isa = PBXGroup;
+			children = (
 				E81C3E952A68DE50009F232F /* ProgressItem.swift */,
 				E81C3E972A69003E009F232F /* NavigationStep.swift */,
+			);
+			path = Ontrip;
+			sourceTree = "<group>";
+		};
+		0594630B2A6648BE009CB0FE /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				05377E852A6D6F81001AA00C /* Header */,
+				05377E862A6D6F8D001AA00C /* Destination */,
+				05377E872A6D6F99001AA00C /* Station */,
+				05377E882A6D6FAF001AA00C /* EmptyView */,
+				05377E892A6D6FB6001AA00C /* Ontrip */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -408,7 +448,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MRTGo/Preview Content\"";
-				DEVELOPMENT_TEAM = 4MZKC63S4P;
+				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MRTGo/Info.plist;
@@ -445,7 +485,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MRTGo/Preview Content\"";
-				DEVELOPMENT_TEAM = 4MZKC63S4P;
+				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MRTGo/Info.plist;

@@ -25,10 +25,12 @@ struct StationItem: View {
                     .frame(width: 24, height: 24)
                 VStack(alignment: .leading, spacing: 2) {
                     Text(name)
-                        .font(.system(size: 16, weight: .medium))
+                        .font(Font.custom("HelveticaNeue", size: 16))
+                        .fontWeight(.medium)
                         .foregroundColor(Color("Gray-950"))
                     Text("\(exit) Exit")
-                        .font(.system(size: 14, weight: .regular))
+                        .font(Font.custom("HelveticaNeue", size: 14))
+                        .fontWeight(.regular)
                         .foregroundColor(Color("Gray-400"))
                 }
                 Spacer()
