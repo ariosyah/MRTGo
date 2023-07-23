@@ -13,6 +13,7 @@ struct HomeView: View {
     @State private var destination = ""
     @State private var isDepartureChosen = false
     @State private var isDestinationChosen = false
+    let stations = [Station]().self
 
     var body: some View {
         GeometryReader { geometry in
@@ -37,7 +38,7 @@ struct HomeView: View {
                 } else {
                     
                     if isDestinationChosen && isDepartureChosen {
-                        TripPlan_Ario(departure: $departure, destination: $destination)
+                        TripPlan_Ario(departure: $departure, destination: $destination,stations: stations)
                     } else {
                         EmptyState(departure: $departure, destination: $destination, isDepartureChosen: $isDepartureChosen, isDestinationChosen: $isDestinationChosen)
                             .opacity(1)
@@ -51,8 +52,8 @@ struct HomeView: View {
                     if isDepartureChosen && isDestinationChosen {
                         print("Notification Active!!!")
                         
-                        let departureLocation = stations.first(where: { $0.name == departure })!.location
-                        let bunderanHILocation = stations.first(where: {$0.name == "Stasiun Bundaran HI"})!.location
+                        let departureLocation = nameList.stations.first(where: { $0.name == departure })!.location
+                        let bunderanHILocation = nameList.stations.first(where: {$0.name == "Stasiun Bundaran HI"})!.location
                         let destinationLocation = destinationPlace.first(where: {$0.name == destination})!.location
                         
                         NotificationManager.shared.detectLocation(location: (departureLocation.latitude, departureLocation.longitude), name: departure)

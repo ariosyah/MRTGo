@@ -14,6 +14,7 @@ struct TripPlanView_OnTrip: View {
     @Binding var isDepartureChosen : Bool
     @Binding var isDestinationChosen : Bool
     @State private var isShowingNavigation = false
+    let stations: [Station]
     
     
     var body: some View {
@@ -35,7 +36,7 @@ struct TripPlanView_OnTrip: View {
                     .padding(24)
                     
                     //Progress Item
-                    ProgressItem(destination: $destination,departure: $departure)
+                    ProgressItem(destination: $destination,departure: $departure,stations: nameList.stations)
                         .padding(.horizontal,24)
                         .frame(height: .infinity)
                         .fixedSize(horizontal: false, vertical: true)
@@ -92,8 +93,8 @@ struct TripPlanView_OnTrip: View {
     }
 }
 
-struct TripPlanView_OnTrip_Previews: PreviewProvider {
-    static var previews: some View {
-        TripPlanView_OnTrip(isKeyboardActive: .constant(true), departure: .constant("Stasiun Lebak Bulus"), destination: .constant("Hotel Pullman Jakarta"), isDepartureChosen: .constant(false), isDestinationChosen: .constant(false))
-    }
-}
+//struct TripPlanView_OnTrip_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TripPlanView_OnTrip(isKeyboardActive: .constant(true), departure: .constant("Stasiun Lebak Bulus"), destination: .constant("Hotel Pullman Jakarta"), isDepartureChosen: .constant(false), isDestinationChosen: .constant(false))
+//    }
+//}

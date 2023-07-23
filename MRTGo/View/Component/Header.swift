@@ -56,8 +56,8 @@ struct Header: View {
                 .padding(.horizontal, 20)
                 .padding(.vertical, 5)
                 .onChange(of: departure) { newValue in
-                    isDepartureChosen = matchedStations(stations: stations, departure: departure, isDepartureChosen: isDepartureChosen).isEmpty
-                    isDepartureChosen = (stations.first(where: { station in
+                    isDepartureChosen = matchedStations(stations: nameList.stations, departure: departure, isDepartureChosen: isDepartureChosen).isEmpty
+                    isDepartureChosen = (nameList.stations.first(where: { station in
                         station.name == newValue
                     }) != nil)
                 }

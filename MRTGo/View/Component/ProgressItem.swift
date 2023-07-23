@@ -14,12 +14,13 @@ struct ProgressItem: View {
     @State private var onBasedLocation = false
     @State private var onTargetLocation = false
     @State private var onDestinationLocation = false
-    private let stations = ["Stasiun Fatmawati", "Stasiun Cipete Raya", "Stasiun Haji Nawi", "Stasiun Haji Blok A", "Stasiun Haji Blok M", "Stasiun Sisimangraja", "Stasiun Senayan", "Stasiun Istora", "Stasiun Benhil", "Stasiun Setiabudi"]
+    @State private var counts = 0
+    let stations: [Station]
     var body: some View {
         List{
             //Based Station
             VStack(alignment: .leading,spacing: 0){
-                HStack(spacing:16) {
+                HStack(alignment: .top,spacing:16) {
                     VStack(spacing:0){
                         Circle()
                             .frame(width: 36,height: 36)
@@ -30,10 +31,10 @@ struct ProgressItem: View {
                                     .foregroundColor(Color(uiColor:.systemBackground))
                             )
                         if onBasedLocation == true {
-                            StripLine(color: Color("Secondary"), width: 4, height: revealDetails ? 320 : 36)
+                            StripLine(color: Color("Secondary"), width: 4, height: revealDetails ? 350 : 36)
                         }
                         else{
-                            StepperDash(height: revealDetails ? 320 : 40, width: 4,color: Color("Secondary"))
+                            StepperDash(height: revealDetails ? 350 : 40, width: 4,color: Color("Secondary"))
                         }
                         
                     }
@@ -49,18 +50,19 @@ struct ProgressItem: View {
                                 .resizable()
                                 .frame(width: 24,height: 24)
                         }
-                        DisclosureGroup("11 Perhentian", isExpanded: $revealDetails) {
+                        DisclosureGroup("\((stations.filter({ $0.name == departure }).first?.stopList.count)! ) Perhentian", isExpanded: $revealDetails) {
                             VStack(alignment: .leading,spacing: 10){
-                                ForEach(stations, id: \.self) { station in
+                                ForEach(stations.filter({ $0.name == departure }).first?.stopList ?? [], id: \.self) { station in
                                     Text(station)
                                         .font(Font.custom("HelveticaNeue", size: 16))
                                         .foregroundColor(Color("Gray-400"))
                                 }
                             }
+                            Spacer()
                         }
                         .font(Font.custom("HelveticaNeue", size: 16))
                         .foregroundColor(revealDetails ? Color(.black) : Color("Gray-500"))
-                        .frame(width: 150)
+                        .frame(width: 200)
                         .padding(.top,10)
                         .accentColor(revealDetails ? Color(.black) : Color("Gray-500"))
                         Spacer()
@@ -199,8 +201,8 @@ struct StepperDash: View {
     }
 }
 
-struct ProgressItem_Previews: PreviewProvider {
-    static var previews: some View {
-        ProgressItem(destination: .constant("Hotel Pullman Jakarta"),departure: .constant("Stasiun Lebak Bulus"))
-    }
-}
+//struct ProgressItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProgressItem(destination: .constant("Hotel Pullman Jakarta"),departure: .constant("Stasiun Lebak Bulus"),stations: [Station])
+//    }
+//}

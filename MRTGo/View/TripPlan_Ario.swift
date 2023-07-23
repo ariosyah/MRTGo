@@ -11,6 +11,7 @@ struct TripPlan_Ario: View {
     @State private var isShowingNavigation = false
     @Binding var departure : String
     @Binding var destination : String
+    let stations: [Station]
 
     
     var body: some View {
@@ -28,7 +29,7 @@ struct TripPlan_Ario: View {
                 .padding(24)
                 
                 //Progress Item
-                ProgressItem(destination: $destination,departure: $departure)
+                ProgressItem(destination: $destination,departure: $departure,stations: nameList.stations)
                 Spacer()
             }
             Button(action: {
