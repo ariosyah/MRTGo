@@ -25,6 +25,13 @@ func matchedDestination(destinationPlace: [Destination], destination: String, is
     return matchedDestination
 }
 
+func matchDestination(destinationName: String, currentLocation: (latitude: Double, longitude: Double)) -> Bool {
+    if let destination = destinationPlace.first(where: { $0.name == destinationName }) {
+        return destination.location == currentLocation
+    }
+    return false
+}
+
 //let destinationPlace = [
 //    Destination(name: "Hotel Pullman Jakarta", exitGate: "Stasiun Bundaran HI (Exit 1A)", location: (-6.1931170,106.8237489)),
 ////    Destination(name: "testdata", exitGate: "Stasiun Bundaran HI (Exit 1A)")

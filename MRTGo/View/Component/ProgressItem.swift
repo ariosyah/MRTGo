@@ -11,12 +11,19 @@ struct ProgressItem: View {
     @Binding var destination : String
     @Binding var departure : String
     @State private var revealDetails = false
-    @State private var onBasedLocation = true
+    @State private var onBasedLocation = false
     @State private var onTargetLocation = false
     @State private var onDestinationLocation = false
     @State private var counts = 0
     let stations: [Station]
     var body: some View {
+        
+//        if destinationPlace.first(where: {$0.name == destination})!.location {
+//            onTargetLocation = true
+//        }
+        
+//        if matchCurrentLocation(destinationName: destination, currentLocation: currentL)
+                
         List{
             //Based Station
             VStack(alignment: .leading,spacing: 0){

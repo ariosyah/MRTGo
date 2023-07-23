@@ -49,24 +49,38 @@ struct HomeView: View {
                     }
 
 
-                    Button {
-                        if isDepartureChosen && isDestinationChosen {
-                            print("Notification Active!!!")
-                            
-                            let departureLocation = nameList.stations.first(where: { $0.name == departure })!.location
-                            let bunderanHILocation = nameList.stations.first(where: {$0.name == "Stasiun Bundaran HI"})!.location
-                            let destinationLocation = destinationPlace.first(where: {$0.name == destination})!.location
-                            
-                            NotificationManager.shared.detectLocation(location: (departureLocation.latitude, departureLocation.longitude), name: departure)
-                            NotificationManager.shared.detectLocation(location: (bunderanHILocation.latitude,bunderanHILocation.longitude), name: "Stasiun Bundaran HI")
-                            NotificationManager.shared.detectLocation(location: (destinationLocation.latitude,destinationLocation.longitude), name: destination)
-                        }
-                    } label: {
-                        Text("submit")
-                    }
+//                    Button {
+//                        if isDepartureChosen && isDestinationChosen {
+//                            print("Notification Active!!!")
+//                            
+//                            let departureLocation = nameList.stations.first(where: { $0.name == departure })!.location
+//                            let bunderanHILocation = nameList.stations.first(where: {$0.name == "Stasiun Bundaran HI"})!.location
+//                            let destinationLocation = destinationPlace.first(where: {$0.name == destination})!.location
+//                            
+//                            //disini ondeparture location kudu true
+//                            NotificationManager.shared.detectLocation(location: (departureLocation.latitude, departureLocation.longitude), name: departure)
+//                            //disini ontargetstation kudu true
+//                            NotificationManager.shared.detectLocation(location: (bunderanHILocation.latitude,bunderanHILocation.longitude), name: "Stasiun Bundaran HI")
+//                            //disini ondestinationlocation kudu true
+//                            NotificationManager.shared.detectLocation(location: (destinationLocation.latitude,destinationLocation.longitude), name: destination)
+//                        }
+//                    } label: {
+//                        Text("submit")
+//                    }
 
                     Spacer()
                 }
+                .onAppear(perform: {
+//                    if let departureStation = nameList.stations.first(where: { $0.name == departure }) {
+//                        let departureLocation = departureStation.location
+//                        NotificationManager.shared.detectLocation(location: (departureLocation.latitude, departureLocation.longitude), name: departure)
+//                    } else {
+//                        // Handle the case when the departure station is not found in the nameList
+//                        print("Departure station not found.")
+//                    }
+                })
+
+
                 
             }
 

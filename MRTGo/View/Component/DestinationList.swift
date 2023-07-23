@@ -16,8 +16,7 @@ struct Destination {
 struct DestinationList: View {
 
     @Binding var destination: String
-    @Binding var isDestinationChosen: Bool
-    
+    @Binding var isDestinationChosen: Bool    
     private func filteredDestination() -> [Destination] {
         return matchedDestination(destinationPlace: destinationPlace, destination: destination, isDestinationChosen: isDestinationChosen)
        }
@@ -38,6 +37,10 @@ struct DestinationList: View {
                         Button(action: {
                             destination = destinations.name // Set the departure state to the selected station's name
                             isDestinationChosen = true
+                            let destinationLocation = destinationPlace.first(where: {$0.name == destination})!.location
+                            NotificationManager.shared.detectLocation(location: (destinationLocation.latitude,destinationLocation.longitude), name: destination,locationType:.destination)
+
+
                         }) {
                             HStack(spacing: 10) {
                                 Image("marker-pin-destination")

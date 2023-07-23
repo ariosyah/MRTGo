@@ -9,6 +9,12 @@ import Foundation
 import UserNotifications
 import CoreLocation
 
+enum LocationType {
+    case departure
+    case target
+    case destination
+}
+
 class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDelegate,CLLocationManagerDelegate{
     var notificationCenter = UNUserNotificationCenter.current()
     private let locationManager = CLLocationManager()
@@ -22,7 +28,7 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
         notificationCenter.delegate = self
         
         notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]){ (granted, error) in
-           
+            
             if granted {
                 print("notification permission granted")
             }else{
@@ -32,7 +38,7 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
         }
     }
     
-    func detectLocation(location: (latitude: Double, longitude: Double), name: String) {
+    func detectLocation(location: (latitude: Double, longitude: Double), name: String, locationType: LocationType) {
         //apple -6.301912729640826, 106.65260511112984
         
         let center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
@@ -42,21 +48,29 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
         region.notifyOnExit = false
         
         locationManager.startMonitoring(for: region)
+        notificationHandler(name: notificationDictionary[region] ?? "", locationType: locationType)
         notificationDictionary[region] = name
-        
-        print("track" + region.identifier)
+        print("tes masuk")
     }
     
     func requestLocationPermission(){
         locationManager.delegate = self
-//       locationManager.monitoredRegions
         locationManager.requestWhenInUseAuthorization()
     }
     
-    func notificationHandler(name: String){
+    func notificationHandler(name: String, locationType: LocationType){
         let notificationContent = UNMutableNotificationContent()
-        notificationContent.title = "Notification location"
-        notificationContent.body = "you've entered \(name)"
+        switch locationType {
+        case .departure:
+            notificationContent.title = "Selamat datang di stasiun awal"
+            notificationContent.body = "Anda terdeteksi berada di \(name)"
+        case .target:
+            notificationContent.title = "Tujuan Anda dekat dengan \(Constants.attractions.first(where: { $0.nearbyAttractions.contains(where: { $0.lowercased() == name.lowercased() }) })?.name ?? "Exit B")"
+            notificationContent.body = "Silakan pilih \(Constants.attractions.first(where: { $0.nearbyAttractions.contains(where: { $0.lowercased() == name.lowercased() }) })?.name ?? "Exit B" ) untuk melanjutkan perjalanan ke destinasi Anda."
+        case .destination:
+            notificationContent.title = "Anda telah mencapai tujuan"
+            notificationContent.body = "Anda terdeteksi berada di \(name)"
+        }
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5 , repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
@@ -71,15 +85,17 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        notificationHandler(name: notificationDictionary[region] ?? "")
         notificationDictionary[region] = nil
         locationManager.stopMonitoring(for: region)
     }
-
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        
+    }
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         completionHandler()
     }
-
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler(.banner)
     }
