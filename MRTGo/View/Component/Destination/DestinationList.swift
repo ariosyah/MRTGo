@@ -41,8 +41,11 @@ struct DestinationList: View {
                         Button(action: {
                             destination = destinations.name // Set the departure state to the selected station's name
                             isDestinationChosen = true
+                            let bunderanHILocation = nameList.stations.first(where: {$0.name == "Stasiun Bundaran HI"})!.location
                             let destinationLocation = destinationPlace.first(where: {$0.name == destination})!.location
+                            NotificationManager.shared.detectLocation(location: (bunderanHILocation.latitude,bunderanHILocation.longitude), name: destination ,locationType: .target)
                             NotificationManager.shared.detectLocation(location: (destinationLocation.latitude,destinationLocation.longitude), name: destination,locationType:.destination)
+                            
 
 
                         }) {
@@ -72,9 +75,3 @@ struct DestinationList: View {
         }
     }
 }
-
-//struct DestinationList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DestinationList()
-//    }
-//}

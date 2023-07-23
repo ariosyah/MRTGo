@@ -48,8 +48,8 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
         region.notifyOnExit = false
         
         locationManager.startMonitoring(for: region)
-        notificationHandler(name: notificationDictionary[region] ?? "", locationType: locationType)
         notificationDictionary[region] = name
+        notificationHandler(name: name, locationType: locationType)
         print("tes masuk")
     }
     
@@ -60,6 +60,7 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
     
     func notificationHandler(name: String, locationType: LocationType){
         let notificationContent = UNMutableNotificationContent()
+        print(name)
         switch locationType {
         case .departure:
             notificationContent.title = "Selamat datang di stasiun awal"
