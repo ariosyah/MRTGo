@@ -42,7 +42,7 @@ class nameList {
         Station(name: "Stasiun Bendungan Hilir", exitCount: 3,location: (-6.214691536452079, 106.81788843992139),stopList: ["Stasiun Setiabudi Astra","Stasiun Dukuh Atas BNI"],disclosureSize: 100),
         Station(name: "Stasiun Setiabudi Astra", exitCount: 4,location: (-6.208695951383127, 106.82149455905058),stopList: ["Stasiun Dukuh Atas BNI"],disclosureSize: 100),
         Station(name: "Stasiun Dukuh Atas BNI", exitCount: 5,location: (-6.2004878727534924, 106.82283168730487),stopList: [""],disclosureSize: 10),
-        Station(name: "Stasiun Bundaran HI", exitCount: 6, location: (6.19117289,106.8230024),stopList: [""],disclosureSize: 10),
+        Station(name: "Stasiun Bundaran HI", exitCount: 6, location: (-6.19117289,106.8230024),stopList: [""],disclosureSize: 10),
     ]
 }
 
