@@ -52,10 +52,16 @@ struct ProgressItem: View {
                                 .resizable()
                                 .frame(width: 24,height: 24)
                         }
-                        DisclosureGroup("\((stations.filter({ $0.name == departure }).first?.stopList.count)! ) Perhentian", isExpanded: $revealDetails) {
-                            VStack(alignment: .leading,spacing: 10){
-                                ForEach(stations.filter({ $0.name == departure }).first?.stopList ?? [], id: \.self) { station in
-                                    Text(station)
+                        DisclosureGroup("\((stations.filter({ $0.name == departure }).first?.stopList.count) ?? 0) Perhentian", isExpanded: $revealDetails) {
+                            VStack(alignment: .leading, spacing: 10) {
+                                if let stopList = stations.filter({ $0.name == departure }).first?.stopList {
+                                    ForEach(stopList, id: \.self) { station in
+                                        Text(station)
+                                            .font(Font.custom("HelveticaNeue", size: 16))
+                                            .foregroundColor(Color("Gray-400"))
+                                    }
+                                } else {
+                                    Text("No stop list available") // Placeholder text when stopList is nil
                                         .font(Font.custom("HelveticaNeue", size: 16))
                                         .foregroundColor(Color("Gray-400"))
                                 }
