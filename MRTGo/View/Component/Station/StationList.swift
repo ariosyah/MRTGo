@@ -54,9 +54,9 @@ struct StationList: View {
                         Button(action: {
                             departure = station.name // Set the departure state to the selected station's name
                             isDepartureChosen = true
-                            let departureLocation = nameList.stations.first(where: { $0.name == departure })!.location
-                            
-                            NotificationManager.shared.detectLocation(location: (departureLocation.latitude, departureLocation.longitude), name: departure,locationType: .departure)
+                                let departureLocation = nameList.stations.first(where: { $0.name == departure })!.location
+                                
+                                NotificationManager.shared.detectLocation(location: (departureLocation.latitude, departureLocation.longitude), name: departure,locationType: .departure)
 
                             
 

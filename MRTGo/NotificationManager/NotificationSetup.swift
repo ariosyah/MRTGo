@@ -21,7 +21,14 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
     
     var notificationDictionary = [CLRegion:String]()
     
-    private override init() { }
+    @Published var onBasedLocation: (String, Bool) = ("", false)
+    @Published var onTargetLocation : (String, Bool) = ("", false)
+    @Published var onDestinationLocation : (String, Bool) = ("", false)
+    
+    private override init() {
+        locationManager.startUpdatingLocation()
+        print("masuk pak eko")
+    }
     static let shared = NotificationManager()
     
     func requestNotificationPermission(){
@@ -43,13 +50,40 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
         
         let center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         
-        let region = CLCircularRegion(center: center, radius: 500.0, identifier: UUID().uuidString)
-        region.notifyOnEntry = true
-        region.notifyOnExit = false
+//        let region = CLCircularRegion(center: center, radius: 500.0, identifier: UUID().uuidString)
+//        region.notifyOnEntry = true
+//        region.notifyOnExit = false
         
-        locationManager.startMonitoring(for: region)
-        notificationDictionary[region] = name
-        notificationHandler(name: name, locationType: locationType)
+        switch locationType {
+        case .departure:
+            let region = CLCircularRegion(center: center, radius: 100.0, identifier: "departure")
+            onBasedLocation.0 = region.identifier
+            onBasedLocation.1 = false
+            locationManager.startMonitoring(for: region)
+            region.notifyOnEntry = true
+            region.notifyOnExit = false
+            notificationDictionary[region] = name
+            notificationHandler(name: name, locationType: locationType)
+        case .target:
+            let region = CLCircularRegion(center: center, radius: 100.0, identifier: "target")
+            onTargetLocation.0 = region.identifier
+            onTargetLocation.1 = false
+            locationManager.startMonitoring(for: region)
+            region.notifyOnEntry = true
+            region.notifyOnExit = false
+            notificationDictionary[region] = name
+            notificationHandler(name: name, locationType: locationType)
+        case .destination:
+            let region = CLCircularRegion(center: center, radius: 100.0, identifier: "destination")
+            onDestinationLocation.0 = region.identifier
+            onDestinationLocation.1 = false
+            locationManager.startMonitoring(for: region)
+            region.notifyOnEntry = true
+            region.notifyOnExit = false
+            notificationDictionary[region] = name
+            notificationHandler(name: name, locationType: locationType)
+        }
+        
         print("tes masuk")
     }
     
@@ -60,11 +94,11 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
     
     func notificationHandler(name: String, locationType: LocationType){
         let notificationContent = UNMutableNotificationContent()
-        print(name)
         switch locationType {
         case .departure:
             notificationContent.title = "Selamat datang di stasiun awal"
             notificationContent.body = "Anda terdeteksi berada di \(name)"
+//            onBasedLocation?.0 =
         case .target:
             notificationContent.title = "Tujuan Anda dekat dengan \(Constants.attractions.first(where: { $0.nearbyAttractions.contains(where: { $0.lowercased() == name.lowercased() }) })?.name ?? "Exit B")"
             notificationContent.body = "Silakan pilih \(Constants.attractions.first(where: { $0.nearbyAttractions.contains(where: { $0.lowercased() == name.lowercased() }) })?.name ?? "Exit B" ) untuk melanjutkan perjalanan ke destinasi Anda."
@@ -86,6 +120,17 @@ class NotificationManager : NSObject,ObservableObject,UNUserNotificationCenterDe
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        print("YOI MASUK")
+        if region.identifier == onTargetLocation.0 {
+            onTargetLocation.1 = true
+            onBasedLocation.1 = true
+        } else if region.identifier == onDestinationLocation.0 {
+            onDestinationLocation.1 = true
+            onTargetLocation.1 = true
+            onBasedLocation.1 = true
+        } else if region.identifier == onBasedLocation.0 {
+            onBasedLocation.1 = true
+        }
         notificationDictionary[region] = nil
         locationManager.stopMonitoring(for: region)
     }

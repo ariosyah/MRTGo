@@ -11,9 +11,10 @@ struct ProgressItem: View {
     @Binding var destination : String
     @Binding var departure : String
     @State private var revealDetails = false
-    @State private var onBasedLocation = false
-    @State private var onTargetLocation = false
-    @State private var onDestinationLocation = false
+//    @State private var onBasedLocation = false
+//    @State private var onTargetLocation = false
+//    @State private var onDestinationLocation = false
+    @StateObject private var locationManager = NotificationManager.shared
     @State private var counts = 0
     @Environment(\.colorScheme) var colorScheme
 
@@ -32,7 +33,7 @@ struct ProgressItem: View {
                                     .frame(width: 20,height: 20)
                                     .foregroundColor(colorScheme == .light ? Color.white : Color("Gray-950"))
                             )
-                        if onBasedLocation == true {
+                        if locationManager.onBasedLocation.1 {
                             StripLine(color: Color("Secondary"), width: 4, height: revealDetails ? 350 : 36)
                         }
                         else{
@@ -76,16 +77,16 @@ struct ProgressItem: View {
                     VStack(spacing:0){
                         Circle()
                             .frame(width: 36,height: 36)
-                            .foregroundColor(onTargetLocation ? Color("Secondary") : Color("Card-Outline"))
+                            .foregroundColor(locationManager.onTargetLocation.1 ? Color("Secondary") : Color("Card-Outline"))
                             .overlay(
                                 Circle()
                                     .frame(width: 20,height: 20)
                                     .foregroundColor(colorScheme == .light ? Color.white : Color("Gray-950"))
                             )
-                        if onDestinationLocation == true {
+                        if locationManager.onDestinationLocation.1 {
                             StripLine(color: Color("Secondary"), width: 4, height: 40)
                         }
-                        else if onTargetLocation == true {
+                        else if locationManager.onTargetLocation.1 {
                             StepperDash(height: 40, width: 4,color: Color("Secondary"))
                         }
                         else {
@@ -124,7 +125,7 @@ struct ProgressItem: View {
                     VStack(spacing:0){
                         Circle()
                             .frame(width: 36,height: 36)
-                            .foregroundColor(onDestinationLocation ? Color("Secondary"):Color("Card-Outline"))
+                            .foregroundColor(locationManager.onDestinationLocation.1 ? Color("Secondary"):Color("Card-Outline"))
                             .overlay(
                                 Circle()
                                     .frame(width: 20,height: 20)
