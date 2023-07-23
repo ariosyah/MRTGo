@@ -58,9 +58,3 @@ struct EmptyState: View {
         }
     }
 }
-
-//struct EmptyState_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EmptyState()
-//    }
-//}
