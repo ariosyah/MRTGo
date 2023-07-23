@@ -39,7 +39,7 @@ struct HomeView: View {
                     } else {
                         
                         if isDestinationChosen && isDepartureChosen {
-                            TripPlan_Ario(departure: $departure, destination: $destination,stations: stations)
+                            OntripView(departure: $departure, destination: $destination,stations: stations)
                         } else {
                             EmptyState(departure: $departure, destination: $destination, isDepartureChosen: $isDepartureChosen, isDestinationChosen: $isDestinationChosen)
                                 .opacity(1)
