@@ -11,7 +11,7 @@ struct ProgressItem: View {
     @Binding var destination : String
     @Binding var departure : String
     @State private var revealDetails = false
-    @State private var onBasedLocation = false
+    @State private var onBasedLocation = true
     @State private var onTargetLocation = false
     @State private var onDestinationLocation = false
     @State private var counts = 0
@@ -31,10 +31,15 @@ struct ProgressItem: View {
                                     .foregroundColor(Color(uiColor:.systemBackground))
                             )
                         if onBasedLocation == true {
-                            StripLine(color: Color("Secondary"), width: 4, height: revealDetails ? 350 : 36)
+                            if let _ = (stations.filter({ $0.name == departure }).first?.disclosureSize) {
+                                StripLine(color: Color("Secondary"), width: 4, height: revealDetails ? (stations.filter({ $0.name == departure }).first?.disclosureSize)! : 36)
+                            }
                         }
                         else{
-                            StepperDash(height: revealDetails ? 350 : 40, width: 4,color: Color("Secondary"))
+                            if let _ = (stations.filter({ $0.name == departure }).first?.disclosureSize) {
+                                StepperDash(height: revealDetails ? (stations.filter({ $0.name == departure }).first?.disclosureSize)! : 40, width: 4,color: Color("Secondary"))
+                            }
+                            
                         }
                         
                     }
@@ -50,21 +55,28 @@ struct ProgressItem: View {
                                 .resizable()
                                 .frame(width: 24,height: 24)
                         }
-                        DisclosureGroup("\((stations.filter({ $0.name == departure }).first?.stopList.count)! ) Perhentian", isExpanded: $revealDetails) {
-                            VStack(alignment: .leading,spacing: 10){
-                                ForEach(stations.filter({ $0.name == departure }).first?.stopList ?? [], id: \.self) { station in
-                                    Text(station)
-                                        .font(Font.custom("HelveticaNeue", size: 16))
-                                        .foregroundColor(Color("Gray-400"))
-                                }
+                        if let _ = (stations.filter({ $0.name == departure }).first?.stopList.count) {
+                            if (stations.filter({ $0.name == departure }).first?.stopList) == [""] {
+                              //kosongin aja say
                             }
-                            Spacer()
+                            else{
+                                DisclosureGroup("\((stations.filter({ $0.name == departure }).first?.stopList.count)!) Perhentian", isExpanded: $revealDetails) {
+                                    VStack(alignment: .leading,spacing: 10){
+                                        ForEach(stations.filter({ $0.name == departure }).first?.stopList ?? [], id: \.self) { station in
+                                            Text(station)
+                                                .font(Font.custom("HelveticaNeue", size: 16))
+                                                .foregroundColor(Color("Gray-400"))
+                                        }
+                                    }
+                                    Spacer()
+                                }
+                                .font(Font.custom("HelveticaNeue", size: 16))
+                                .foregroundColor(revealDetails ? Color(.black) : Color("Gray-500"))
+                                .frame(width: 200)
+                                .padding(.top,10)
+                                .accentColor(revealDetails ? Color(.black) : Color("Gray-500"))
+                            }
                         }
-                        .font(Font.custom("HelveticaNeue", size: 16))
-                        .foregroundColor(revealDetails ? Color(.black) : Color("Gray-500"))
-                        .frame(width: 200)
-                        .padding(.top,10)
-                        .accentColor(revealDetails ? Color(.black) : Color("Gray-500"))
                         Spacer()
                     }
                 }
@@ -142,7 +154,6 @@ struct ProgressItem: View {
                                 .frame(width: 24,height: 24)
                         }
                         Spacer()
-                        
                     }
                     .padding(.vertical,4)
                 }

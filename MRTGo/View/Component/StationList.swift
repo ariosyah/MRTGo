@@ -11,6 +11,7 @@ struct Station {
     var exitCount: Int
     var location: (latitude: Double, longitude: Double)
     var stopList: [String]
+    var disclosureSize: CGFloat
 }
 
 struct StationList: View {
