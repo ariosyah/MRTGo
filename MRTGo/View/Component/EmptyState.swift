@@ -31,6 +31,7 @@ struct EmptyState: View {
                 
                 Button(action: {
                     print("test")
+                    //Attach ExplorationView disini
                     DestinationList(destination: $destination, isDestinationChosen: $isDestinationChosen)
                 }) {
                     
@@ -57,9 +58,3 @@ struct EmptyState: View {
         }
     }
 }
-
-//struct EmptyState_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EmptyState()
-//    }
-//}

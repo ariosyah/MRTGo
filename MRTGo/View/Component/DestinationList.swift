@@ -10,6 +10,7 @@ import SwiftUI
 struct Destination {
     var name: String
     var exitGate: String
+    var location: (latitude: Double, longitude: Double)
 }
 
 struct DestinationList: View {
@@ -21,13 +22,6 @@ struct DestinationList: View {
         return matchedDestination(destinationPlace: destinationPlace, destination: destination, isDestinationChosen: isDestinationChosen)
        }
     
-//    private func filteredDestination() -> [Destination] {
-//        if destination.isEmpty {
-//            return destinationPlace
-//        } else {
-//            return destinationPlace.filter { $0.name.lowercased().contains(destination.lowercased()) }
-//        }
-//    }
 
     var body: some View {
         VStack(alignment: .leading) {

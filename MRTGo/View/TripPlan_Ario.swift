@@ -11,10 +11,10 @@ struct TripPlan_Ario: View {
     @State private var isShowingNavigation = false
     @Binding var departure : String
     @Binding var destination : String
+    let stations: [Station]
+
     
     var body: some View {
-        // Trip Plan
-        
         VStack{
             VStack(alignment: .leading){
                 
@@ -29,9 +29,7 @@ struct TripPlan_Ario: View {
                 .padding(24)
                 
                 //Progress Item
-                ProgressItem(destination: $destination)
-                    .padding(.horizontal,24)
-                    .frame(height: .infinity)
+                ProgressItem(destination: $destination,departure: $departure,stations: nameList.stations)
                 Spacer()
             }
             Button(action: {
@@ -54,10 +52,18 @@ struct TripPlan_Ario: View {
             VStack(alignment: .leading,spacing: 16){
                 HStack{
                     VStack(alignment: .leading){
-                        Text("Exit (Pintu A)")
-                            .font(Font.custom("HelveticaNeue",size:18))
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("Primary"))
+                        if let attractionList = Constants.attractions.first(where: { $0.nearbyAttractions.contains(where: { $0.lowercased() == destination.lowercased() }) }) {
+                            Text(attractionList.name)
+                                .font(Font.custom("HelveticaNeue", size: 18))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("Primary"))
+                        } else {
+                            // Handle the case when there is no relevant attraction list for the given destination
+                            Text("Unknown Exit")
+                                .font(Font.custom("HelveticaNeue", size: 18))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("Primary"))
+                        }
                         
                         Text("Stasiun Bundaran HI")
                             .font(Font.custom("HelveticaNeue",size:16))
@@ -82,10 +88,4 @@ struct TripPlan_Ario: View {
             
         }
     }
-    
-//    struct TripPlan_Ario_Previews: PreviewProvider {
-//        static var previews: some View {
-//            TripPlan_Ario()
-//        }
-//    }
 }

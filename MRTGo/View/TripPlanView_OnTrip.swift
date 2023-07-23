@@ -14,6 +14,8 @@ struct TripPlanView_OnTrip: View {
     @Binding var isDepartureChosen : Bool
     @Binding var isDestinationChosen : Bool
     @State private var isShowingNavigation = false
+    let stations: [Station]
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -34,9 +36,10 @@ struct TripPlanView_OnTrip: View {
                     .padding(24)
                     
                     //Progress Item
-                    ProgressItem(destination: $destination)
+                    ProgressItem(destination: $destination,departure: $departure,stations: nameList.stations)
                         .padding(.horizontal,24)
                         .frame(height: .infinity)
+                        .fixedSize(horizontal: false, vertical: true)
                     Spacer()
                 }
                 Button(action: {
@@ -58,7 +61,7 @@ struct TripPlanView_OnTrip: View {
             .sheet(isPresented: $isShowingNavigation) {
                 VStack(alignment: .leading,spacing: 16){
                     HStack{
-                        VStack(alignment: .leading){
+                        VStack(alignment: .leading,spacing: 8){
                             Text("Exit (Pintu A)")
                                 .font(Font.custom("HelveticaNeue",size:18))
                                 .fontWeight(.bold)
@@ -90,8 +93,8 @@ struct TripPlanView_OnTrip: View {
     }
 }
 
-struct TripPlanView_OnTrip_Previews: PreviewProvider {
-    static var previews: some View {
-        TripPlanView_OnTrip(isKeyboardActive: .constant(true), departure: .constant(""), destination: .constant("Hotel Pullman Jakarta"), isDepartureChosen: .constant(false), isDestinationChosen: .constant(false))
-    }
-}
+//struct TripPlanView_OnTrip_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TripPlanView_OnTrip(isKeyboardActive: .constant(true), departure: .constant("Stasiun Lebak Bulus"), destination: .constant("Hotel Pullman Jakarta"), isDepartureChosen: .constant(false), isDestinationChosen: .constant(false))
+//    }
+//}

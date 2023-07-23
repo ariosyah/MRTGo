@@ -9,6 +9,8 @@ import SwiftUI
 struct Station {
     var name: String
     var exitCount: Int
+    var location: (latitude: Double, longitude: Double)
+    var stopList: [String]
 }
 
 struct StationList: View {
@@ -18,7 +20,7 @@ struct StationList: View {
     
     // Function to filter stations based on the search text
     private func filteredStations() -> [Station] {
-        return matchedStations(stations: stations, departure: departure, isDepartureChosen: isDepartureChosen)
+        return matchedStations(stations: nameList.stations, departure: departure, isDepartureChosen: isDepartureChosen)
        }
     
     //    var matchedStations: [Station] {
