@@ -50,6 +50,11 @@ struct Header: View {
                         .font(Font.custom("HelveticaNeue", size: 16))
                         .fontWeight(.medium)
                         .foregroundColor(Color("Primary"))
+                        .onTapGesture {
+                                    if !departure.isEmpty {
+                                        departure = "" // Clear the text if it's not empty
+                                    }
+                                }
                     
                 }
                 .padding(.horizontal, 16)
@@ -85,6 +90,11 @@ struct Header: View {
                         .font(Font.custom("HelveticaNeue", size: 16))
                         .fontWeight(.medium)                        .foregroundColor(Color("Primary"))
                         .disabled(!isDepartureChosen)
+                        .onTapGesture {
+                            if !destination.isEmpty {
+                                destination = "" // Clear the text if it's not empty
+                            }
+                        }
 
                 }
                 .padding(.horizontal, 16)
